@@ -1,30 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function ListPage(props) {
-    return (
-        <div>
-            <h1>What's available in your neighborhood</h1>
 
-            <form>
-                <input type="radio" name="listing-type" value="0" />
-                <label for="listing-type">
-                    <span>Vegetable</span>
-                </label>
+class ListPage extends Component {
 
-                <input type="radio" name="listing-type" value="1" />
-                <label for="listing-type">
-                    <span>Fruit</span>
-                </label>
-            </form>
+    state = {
+        all: [
+            {
+                id: 0,
+                title: '5 organic tomatoes',
+                type: 'vegetable'
+            },
+            {
+                id: 1,
+                title: 'fresh peaches',
+                type: 'fruit'
+            },
+            {
+                id: 2,
+                title: 'one watermelon',
+                type: 'fruit'
+            },
+            {
+                id: 3,
+                title: 'potatoes',
+                type: 'vegetable'
+            }
+        ],
+        listings: []
+    }
 
-            <ul>
-                <li>5 organic tomatoes</li>
-                <li>fresh peaches</li>
-                <li>watermelon seeds</li>
-                <li>5lbs potatoes</li>
-            </ul>
-        </div>
-    );
-};
+    componentDidMount() {
+        this.setState({
+            listings: this.state.all
+        })
+    }
+
+    handleChange = (event) => {
+        const query = event.target.value
+        if (query === "all") {
+            this.setState({
+                listings: this.state.all
+            })
+        } else {
+            const filteredList = this.state.all.filter(listing => listing.type === query)
+            this.setState({
+                listings: filteredList
+            })
+        }
+
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>What's available in your neighborhood</h1>
+
+                <form onChange={this.handleChange}>
+                    <input type="radio" name="listing-type" id="vegetable" value="vegetable" />
+                    <label htmlFor="vegetable">
+                        <span>Vegetable</span>
+                    </label>
+
+                    <input type="radio" name="listing-type" id="fruit" value="fruit" />
+                    <label htmlFor="fruit">
+                        <span>Fruit</span>
+                    </label>
+
+                    <input type="radio" name="listing-type" id="all" value="all" />
+                    <label htmlFor="all">
+                        <span>All</span>
+                    </label>
+                </form>
+
+                <ul>
+                    {this.state.listings.map(listing => <li key={listing.id}>{listing.title}</li>)}
+                </ul>
+            </div>
+        );
+    }
+}
 
 export default ListPage;
