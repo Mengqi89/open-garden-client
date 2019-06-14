@@ -8,13 +8,11 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListing from './components/AddListing/AddListing'
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
         <div className='App'>
-          <nav className='App__nav'>
-            <h1>Nav</h1>
-          </nav>
           <main className='App__main'>
             <Route
               exact
