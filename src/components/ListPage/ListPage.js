@@ -48,7 +48,7 @@ class ListPage extends Component {
 
     handleTypeChange = event => {
         const query = event.target.value
-        if (query === "all") {
+        if (query === 'all') {
             this.setState({
                 listings: this.state.all
             })
@@ -67,25 +67,25 @@ class ListPage extends Component {
                 <h1>What's available in your neighborhood</h1>
 
                 <form onChange={this.handleZipChange}>
-                    <label htmlFor="zip">Enter zipcode: </label>
-                    <input type="text" name="listing-zip" id="zip" placeholder="84103"></input>
+                    <label htmlFor='zip'>Enter zipcode: </label>
+                    <input type='text' name='listing-zip' id='zip' placeholder='84103'></input>
                 </form>
 
                 <form onChange={this.handleTypeChange}>
                     <fieldset>
                         <legend>Only see what you like:</legend>
-                        <input type="radio" name="listing-type" id="vegetable" value="vegetable" />
-                        <label htmlFor="vegetable">
+                        <input type='radio' name='listing-type' id='vegetable' value='vegetable' />
+                        <label htmlFor='vegetable'>
                             <span>Vegetable</span>
                         </label>
 
-                        <input type="radio" name="listing-type" id="fruit" value="fruit" />
-                        <label htmlFor="fruit">
+                        <input type='radio' name='listing-type' id='fruit' value='fruit' />
+                        <label htmlFor='fruit'>
                             <span>Fruit</span>
                         </label>
 
-                        <input type="radio" name="listing-type" id="all" value="all" />
-                        <label htmlFor="all">
+                        <input type='radio' name='listing-type' id='all' value='all' />
+                        <label htmlFor='all'>
                             <span>All</span>
                         </label>
                     </fieldset>
