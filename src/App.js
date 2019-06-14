@@ -8,6 +8,7 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListing from './components/AddListing/AddListing'
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
