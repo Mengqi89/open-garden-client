@@ -1,9 +1,24 @@
-import React from 'react';
+import React from 'react'
+import TokenService from '../../services/token-service'
 
 function LoginForm(props) {
+
+    function handleSubmitBasicAuth(event) {
+        event.preventDefault()
+        const { user_name, password } = event.target
+
+        TokenService.saveAuthToken(
+            TokenService.makeBasicAuthToken(user_name.value, password.value)
+        )
+
+        user_name.value = ''
+        password.value = ''
+        props.onLoginSuccess()
+    }
+
     return (
         <div>
-            <form className='LoginForm'>
+            <form className='LoginForm' onSubmit={handleSubmitBasicAuth}>
                 <div className='user_name'>
                     <label htmlFor='Login__user_name'>
                         Username
