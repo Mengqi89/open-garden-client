@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 
 
 class ListPage extends Component {
-
     state = {
         all: [
             {
                 id: 0,
                 title: '5 organic tomatoes',
-                type: 'vegetable'
+                type: 'vegetable',
+                zip: '84103'
             },
             {
                 id: 1,
                 title: 'fresh peaches',
-                type: 'fruit'
+                type: 'fruit',
+                zip: '84102'
             },
             {
                 id: 2,
                 title: 'one watermelon',
-                type: 'fruit'
+                type: 'fruit',
+                zip: '84105'
             },
             {
                 id: 3,
                 title: 'potatoes',
-                type: 'vegetable'
+                type: 'vegetable',
+                zip: '84103'
             }
         ],
         listings: []
@@ -35,7 +38,15 @@ class ListPage extends Component {
         })
     }
 
-    handleChange = (event) => {
+    handleZipChange = event => {
+        const zip = event.target.value
+        const filteredList = this.state.all.filter(listing => listing.zip === zip)
+        this.setState({
+            listings: filteredList
+        })
+    }
+
+    handleTypeChange = event => {
         const query = event.target.value
         if (query === "all") {
             this.setState({
@@ -55,21 +66,29 @@ class ListPage extends Component {
             <div>
                 <h1>What's available in your neighborhood</h1>
 
-                <form onChange={this.handleChange}>
-                    <input type="radio" name="listing-type" id="vegetable" value="vegetable" />
-                    <label htmlFor="vegetable">
-                        <span>Vegetable</span>
-                    </label>
+                <form onChange={this.handleZipChange}>
+                    <label htmlFor="zip">Enter zipcode: </label>
+                    <input type="text" name="listing-zip" id="zip" placeholder="84103"></input>
+                </form>
 
-                    <input type="radio" name="listing-type" id="fruit" value="fruit" />
-                    <label htmlFor="fruit">
-                        <span>Fruit</span>
-                    </label>
+                <form onChange={this.handleTypeChange}>
+                    <fieldset>
+                        <legend>Only see what you like:</legend>
+                        <input type="radio" name="listing-type" id="vegetable" value="vegetable" />
+                        <label htmlFor="vegetable">
+                            <span>Vegetable</span>
+                        </label>
 
-                    <input type="radio" name="listing-type" id="all" value="all" />
-                    <label htmlFor="all">
-                        <span>All</span>
-                    </label>
+                        <input type="radio" name="listing-type" id="fruit" value="fruit" />
+                        <label htmlFor="fruit">
+                            <span>Fruit</span>
+                        </label>
+
+                        <input type="radio" name="listing-type" id="all" value="all" />
+                        <label htmlFor="all">
+                            <span>All</span>
+                        </label>
+                    </fieldset>
                 </form>
 
                 <ul>
