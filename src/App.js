@@ -12,9 +12,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className='App'>
-          <nav className='App__nav'>
-            <h1>Nav</h1>
-          </nav>
           <main className='App__main'>
             <Route
               exact
