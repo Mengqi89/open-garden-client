@@ -45,6 +45,7 @@ class ListPage extends Component {
             listings: filteredList
         })
     }
+    //store zip in the state and use that zip to update the view
 
     handleTypeChange = event => {
         const query = event.target.value
@@ -58,13 +59,16 @@ class ListPage extends Component {
                 listings: filteredList
             })
         }
-
     }
 
     render() {
         return (
             <div>
                 <h1>What's available in your neighborhood</h1>
+
+                <form className='AddForm' action='/add'>
+                    <button type='submit'>Start a Share!</button>
+                </form>
 
                 <form onChange={this.handleZipChange}>
                     <label htmlFor='zip'>Enter zipcode: </label>

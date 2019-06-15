@@ -38,10 +38,6 @@ class App extends Component {
               exact
               path={'/add'}
               component={AddListing}></Route>
-            <Route
-              exact
-              path={'/add'}
-              component={AddListing}></Route>
           </main>
         </div>
       </BrowserRouter>
