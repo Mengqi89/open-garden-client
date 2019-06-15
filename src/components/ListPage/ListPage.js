@@ -99,7 +99,7 @@ class ListPage extends Component {
                     </fieldset>
                 </form>
                 <ul>
-                    {this.state.listings.map(listing => <li key={listing.id}>{listing.title}</li>)}
+                    {this.state.listings.map(listing => <li key={listing.id}><Link to='/list/:listId'>{listing.title}</Link></li>)}
                 </ul>
             </div>
         );

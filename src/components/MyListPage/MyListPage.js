@@ -25,7 +25,8 @@ class MyListPage extends Component {
                 <ul>
                     {this.state.myList.map(listing =>
                         <li key={listing.id}>
-                            <Link to='/edit'> {listing.title}</Link>
+                            {listing.title}
+                            <Link to='/edit'><button>Edit</button></Link>
                         </li>)}
                 </ul>
             </div>
