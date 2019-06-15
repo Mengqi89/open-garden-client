@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm'
+import { Link } from 'react-router-dom'
 
 function LoginPage(props) {
 
@@ -11,6 +12,9 @@ function LoginPage(props) {
 
     return (
         <div className='LoginPage'>
+            <nav >
+                <Link to='/'>Go Back</Link>
+            </nav>
             <h2>Login</h2>
             <LoginForm onLoginSuccess={handleLoginSuccess} />
         </div>

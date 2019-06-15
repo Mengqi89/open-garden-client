@@ -1,5 +1,6 @@
 import React from 'react';
 import AddListingForm from '../AddListingForm/AddListingForm'
+import { Link } from 'react-router-dom'
 
 function AddListingPage(props) {
     function handleAddSuccess() {
@@ -10,7 +11,7 @@ function AddListingPage(props) {
     return (
         <div>
             <nav>
-                <a href='/list'>List Page</a>
+                <Link to='/list'>List Page</Link>
             </nav>
             <header>
                 <h2>Fresh Share!</h2>

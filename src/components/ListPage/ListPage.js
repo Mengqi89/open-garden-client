@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
 class ListPage extends Component {
@@ -32,13 +33,11 @@ class ListPage extends Component {
         listings: [],
         zip: ''
     }
-
     componentDidMount() {
         this.setState({
             listings: this.state.all
         })
     }
-
     handleZipChange = event => {
         const zip = event.target.value
         this.setState({
@@ -55,8 +54,6 @@ class ListPage extends Component {
             })
         }
     }
-    //store zip in the state and use that zip to update the view
-
     handleTypeChange = event => {
         const query = event.target.value
         if (query === 'all') {
@@ -70,24 +67,18 @@ class ListPage extends Component {
             })
         }
     }
-
     render() {
         return (
             <div>
                 <nav >
-                    <a href='/mylist'>My List</a>
+                    <Link to='/mylist'>My List</Link>
                 </nav>
                 <h1>What's available in your neighborhood</h1>
-
-                <form className='AddForm' action='/add'>
-                    <button type='submit'>Start a Share!</button>
-                </form>
-
+                <Link to='/add'><button type='submit'>Start a Share!</button></Link>
                 <form onChange={this.handleZipChange}>
                     <label htmlFor='zip'>Enter zipcode: </label>
                     <input type='text' name='listing-zip' id='zip' placeholder='84103'></input>
                 </form>
-
                 <form onChange={this.handleTypeChange}>
                     <fieldset>
                         <legend>Only see what you like:</legend>
@@ -107,7 +98,6 @@ class ListPage extends Component {
                         </label>
                     </fieldset>
                 </form>
-
                 <ul>
                     {this.state.listings.map(listing => <li key={listing.id}>{listing.title}</li>)}
                 </ul>

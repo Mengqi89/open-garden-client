@@ -1,5 +1,6 @@
 import React from 'react'
 import RegistrationForm from '../RegistrationForm/RegistrationForm'
+import { Link } from 'react-router-dom'
 
 function RegistrationPage(props) {
 
@@ -10,6 +11,9 @@ function RegistrationPage(props) {
 
     return (
         <div className='RegistrationPage'>
+            <nav >
+                <Link to='/'>Go Back</Link>
+            </nav>
             <h2>Register</h2>
             <RegistrationForm onRegistrationSuccess={handleRegistrationSuccess} />
         </div>
