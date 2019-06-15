@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-class AddListingForm extends Component {
+class EditListingPage extends Component {
     state = {
-        listing_title: '',
-        listing_summary: '',
-        listing_type: '',
-        contact: '',
-        address: ''
+        id: 0,
+        listing_title: '5 organic tomatoes',
+        listing_summary: 'delicious vegetables',
+        listing_type: 'vegetable',
+        contact: 'dunder@dunder.net',
+        address: 'dunder residence, Washington DC, USA'
     }
     handleChange = event => {
         const name = event.target.name
@@ -25,12 +26,12 @@ class AddListingForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
-                        <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
+                        <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' value={this.state.listing_title} onChange={this.handleChange} required />
 
                     </div>
                     <div>
                         <label htmlFor='listing-summary'>Summary: </label><br />
-                        <textarea id='listing-summary' name='listing_summary' rows='10' onChange={this.handleChange} />
+                        <textarea id='listing-summary' name='listing_summary' rows='10' value={this.state.listing_summary} onChange={this.handleChange} />
                     </div>
                     <div>
                         <p>Select listing type</p>
@@ -42,22 +43,18 @@ class AddListingForm extends Component {
                     </div>
                     <div>
                         <label htmlFor='contact'>Email/Cell</label>
-                        <input id='contact' name='contact' type='text' required onChange={this.handleChange} />
+                        <input id='contact' name='contact' type='text' value={this.state.contact} onChange={this.handleChange} required />
                     </div>
                     <div>
                         <label htmlFor='address'>Address</label>
-                        <input id='address' name='address' type='text' required onChange={this.handleChange} />
+                        <input id='address' name='address' type='text' value={this.state.address} onChange={this.handleChange} required />
                     </div>
-                    <button type='submit'>Share!</button>
+                    <button type='submit'>Update</button>
+                    <button type='submit'>Delete</button>
                 </form>
             </div>
         )
     }
 }
 
-export default AddListingForm
-
-//1 class component
-//2 state to hold all data
-//3 onChange to send all data to state
-//4 onSubmit to send the data somewhere
+export default EditListingPage;

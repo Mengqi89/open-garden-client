@@ -7,6 +7,7 @@ import LoginPage from './components/LoginPage/LoginPage'
 import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
 import MyList from './components/MyListPage/MyListPage'
+import EditListingPage from './components/EditListingPage/EditListingPage'
 
 class App extends Component {
 
@@ -43,6 +44,11 @@ class App extends Component {
               exact
               path={'/mylist'}
               component={MyList}></Route>
+            <Route
+              exact
+              path={'/edit'}
+              component={EditListingPage}></Route>
+            {/* how to implement edit page */}
           </main>
         </div>
       </BrowserRouter>
