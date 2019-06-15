@@ -29,7 +29,8 @@ class ListPage extends Component {
                 zip: '84103'
             }
         ],
-        listings: []
+        listings: [],
+        zip: ''
     }
 
     componentDidMount() {
@@ -40,10 +41,19 @@ class ListPage extends Component {
 
     handleZipChange = event => {
         const zip = event.target.value
-        const filteredList = this.state.all.filter(listing => listing.zip === zip)
         this.setState({
-            listings: filteredList
+            zip
         })
+        if (zip === '') {
+            this.setState({
+                listings: this.state.all
+            })
+        } else {
+            const filteredList = this.state.all.filter(listing => listing.zip === zip)
+            this.setState({
+                listings: filteredList
+            })
+        }
     }
     //store zip in the state and use that zip to update the view
 
