@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class MyListPage extends Component {
     state = {
@@ -17,13 +18,15 @@ class MyListPage extends Component {
             }
         ]
     }
-
     render() {
         return (
             <div>
                 <h2>My List</h2>
                 <ul>
-                    {this.state.myList.map(listing => <li key={listing.id}>{listing.title}</li>)}
+                    {this.state.myList.map(listing =>
+                        <li key={listing.id}>
+                            <Link to='/edit'> {listing.title}</Link>
+                        </li>)}
                 </ul>
             </div>
         )
