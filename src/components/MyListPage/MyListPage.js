@@ -18,15 +18,30 @@ class MyListPage extends Component {
             }
         ]
     }
+
+    handleDelete = (event) => {
+        event.preventDefault()
+        const deleteId = Number(event.target.name)
+        const filteredList = this.state.myList.filter(listing => listing.id !== deleteId)
+        this.setState({
+            myList: filteredList
+        })
+    }
     render() {
         return (
             <div>
+                <nav >
+                    <Link to='/list'>List</Link>
+                </nav>
                 <h2>My List</h2>
                 <ul>
                     {this.state.myList.map(listing =>
                         <li key={listing.id}>
-                            {listing.title}
+                            <Link to='/list/:listId'>{listing.title}</Link>
                             <Link to='/edit'><button>Edit</button></Link>
+                            <form onSubmit={this.handleDelete} name={listing.id}>
+                                <button type='submit'>Delete</button>
+                            </form>
                         </li>)}
                 </ul>
             </div>

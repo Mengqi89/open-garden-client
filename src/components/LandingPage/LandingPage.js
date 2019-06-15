@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class LandingPage extends Component {
     state = {
@@ -25,7 +26,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <nav className='App__nav'>
-                    <a href="/login">Login</a>
+                    <Link to="/login">Login</Link>
                 </nav>
                 <header>
                     <h1>Food Share</h1>
