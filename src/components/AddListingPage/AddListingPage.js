@@ -8,10 +8,16 @@ function AddListingPage(props) {
     }
 
     return (
-        <header>
-            <h2>Fresh Share!</h2>
-            <AddListingForm onAddSuccess={handleAddSuccess} />
-        </header>
+        <div>
+            <nav>
+                <a href='/list'>List Page</a>
+            </nav>
+            <header>
+                <h2>Fresh Share!</h2>
+                <AddListingForm onAddSuccess={handleAddSuccess} />
+            </header>
+        </div>
+
     )
 }
 
