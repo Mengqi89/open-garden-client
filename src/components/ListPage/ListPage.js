@@ -74,6 +74,9 @@ class ListPage extends Component {
     render() {
         return (
             <div>
+                <nav >
+                    <a href='/mylist'>My List</a>
+                </nav>
                 <h1>What's available in your neighborhood</h1>
 
                 <form className='AddForm' action='/add'>
