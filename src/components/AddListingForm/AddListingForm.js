@@ -1,56 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function AddListingForm(props) {
-    function handleSubmit(event) {
+class AddListingForm extends Component {
+    state = {
+        listing_title: '',
+        listing_summary: '',
+        listing_type: '',
+        contact: '',
+        address: ''
+    }
+    handleChange = event => {
+        const name = event.target.name
+        this.setState({
+            [name]: event.target.value
+        })
+    }
+    handleSubmit = event => {
         event.preventDefault()
-        const { listing_title, listing_summary, listing_type, contact, address } = event.target
-        window.localStorage.setItem('listing_title', listing_title.value)
-        window.localStorage.setItem('listing_summary', listing_summary.value)
-        window.localStorage.setItem('listing_type', listing_type.value)
-        window.localStorage.setItem('contact', contact.value)
-        window.localStorage.setItem('address', address.value)
+        window.localStorage.setItem('Form Data', this.state)
+        this.props.onAddSuccess()
+    }
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <label htmlFor='listing-title'>Title: </label><br />
+                        <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
 
-        listing_title.value = ''
-        listing_summary.value = ''
-        listing_type.value = ''
-        contact.value = ''
-        address.value = ''
-        props.onAddSuccess()
+                    </div>
+                    <div>
+                        <label htmlFor='listing-summary'>Summary: </label><br />
+                        <textarea id='listing-summary' name='listing_summary' rows='10' onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <p>Select listing type</p>
+                        <input type='radio' id='vegetable' name='listing_type' value='vegetable' onChange={this.handleChange} />
+                        <label htmlFor='vegetable'>vegetable</label>
+
+                        <input type='radio' id='fruit' name='listing_type' value='fruit' onChange={this.handleChange}></input>
+                        <label htmlFor='fruit'>fruit</label>
+                    </div>
+                    <div>
+                        <label htmlFor='contact'>Email/Cell</label>
+                        <input id='contact' name='contact' type='text' required onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor='address'>Address</label>
+                        <input id='address' name='address' type='text' required onChange={this.handleChange} />
+                    </div>
+                    <button type='submit'>Share!</button>
+                </form>
+            </div>
+        )
     }
 
-    return (
-        <div>
-            <form id='add-listing' onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='listing-title'>Title: </label><br />
-                    <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' required />
+}
 
-                </div>
-                <div>
-                    <label htmlFor='listing-summary'>Summary: </label><br />
-                    <textarea id='listing-summary' name='listing_summary' rows='10' />
-                </div>
-                <div>
-                    <p>Select listing type</p>
-                    <input type='radio' id='vegetable' name='listing_type'></input>
-                    <label htmlFor='vegetable'>vegetable</label>
+export default AddListingForm
 
-                    <input type='radio' id='fruit' name='listing_type'></input>
-                    <label htmlFor='fruit'>fruit</label>
-                </div>
-                <div>
-                    <label htmlFor='contact'>Email/Cell</label>
-                    <input id='contact' name='contact' type='text' required></input>
-                </div>
-                <div>
-                    <label htmlFor='address'>Address</label>
-                    <input id='address' name='address' type='text' required></input>
-                </div>
-
-                <button type='submit'>Share!</button>
-            </form>
-        </div>
-    );
-};
-
-export default AddListingForm;
+//1 class component
+//2 state to hold all data
+//3 onChange to send all data to state
+//4 onSubmit to send the data somewhere

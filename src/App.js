@@ -6,6 +6,7 @@ import RegistrationPage from './components/RegistrationPage/RegistrationPage'
 import LoginPage from './components/LoginPage/LoginPage'
 import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
+import MyList from './components/MyListPage/MyListPage'
 
 class App extends Component {
 
@@ -38,6 +39,10 @@ class App extends Component {
               exact
               path={'/add'}
               component={AddListingPage}></Route>
+            <Route
+              exact
+              path={'/mylist'}
+              component={MyList}></Route>
           </main>
         </div>
       </BrowserRouter>
