@@ -5,7 +5,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import RegistrationPage from './components/RegistrationPage/RegistrationPage'
 import LoginPage from './components/LoginPage/LoginPage'
 import ListingPage from './components/ListingPage/ListingPage'
-import AddListing from './components/AddListing/AddListing'
+import AddListingPage from './components/AddListingPage/AddListingPage'
 
 class App extends Component {
 
@@ -37,11 +37,7 @@ class App extends Component {
             <Route
               exact
               path={'/add'}
-              component={AddListing}></Route>
-            <Route
-              exact
-              path={'/add'}
-              component={AddListing}></Route>
+              component={AddListingPage}></Route>
           </main>
         </div>
       </BrowserRouter>

@@ -35,7 +35,7 @@ function LoginForm(props) {
                     </label>
                     <input
                         name='password'
-                        type='text'
+                        type='password'
                         required
                         id='Login__password' />
                 </div>

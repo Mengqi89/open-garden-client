@@ -7,9 +7,6 @@ function LoginPage(props) {
         const { location, history } = props
         const destination = (location.state || {}).from || '/list'
         history.push(destination)
-        console.log(destination)
-        console.log(location)
-        console.log(history)
     }
 
     return (
