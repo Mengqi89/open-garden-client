@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 class RegistrationForm extends Component {
     state = {
-        full_name: '',
+        first_name: '',
+        last_name: '',
         user_name: '',
         email: '',
         password: ''
@@ -23,15 +24,27 @@ class RegistrationForm extends Component {
         return (
             <div>
                 <form className='RegistrationForm' onSubmit={this.handleSubmit}>
-                    <div className='full_name'>
-                        <label htmlFor='Registration__full_name'>
-                            Full Name
+                    <p>All fields required</p>
+                    <div className='first_name'>
+                        <label htmlFor='Registration__first_name'>
+                            First Name
                         </label>
                         <input
-                            name='full_name'
+                            name='first_name'
                             type='text'
                             required
-                            id='Registration__full_name'
+                            id='Registration__first_name'
+                            onChange={this.handleChange} />
+                    </div>
+                    <div className='last_name'>
+                        <label htmlFor='Registration__last_name'>
+                            Last Name
+                        </label>
+                        <input
+                            name='last_name'
+                            type='text'
+                            required
+                            id='Registration__last_name'
                             onChange={this.handleChange} />
                     </div>
                     <div className='user_name'>

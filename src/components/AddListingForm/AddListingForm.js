@@ -17,7 +17,7 @@ class AddListingForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         window.localStorage.setItem('Form Data', this.state)
-        this.props.onAddSuccess()
+        this.props.onAddSuccess(this.state)
     }
     render() {
         return (

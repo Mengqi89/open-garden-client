@@ -30,18 +30,18 @@ class LandingPage extends Component {
                 </nav>
                 <header>
                     <h1>Food Share</h1>
-                    <form action="/register">
-                        <button type="submit">Join!</button>
-                    </form>
+                    <Link to="/register"><button type="submit">Join!</button></Link>
                 </header>
-                <div>
+                <div className='App__intro'>
+                    <p>Build a healthy and connected community by sharing vegetables and fruit with your neighbors</p>
+                </div>
+                <div className='App_preview'>
                     <h2>How many are sharing in your neighbhorhood?</h2>
                     <form onClick={this.handleSum}>
                         <button type="submit">Find out!</button>
                     </form>
                     {this.state.sum}
                 </div>
-
             </div>
         )
     }
