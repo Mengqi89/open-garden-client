@@ -3,6 +3,7 @@ import EditListingForm from '../EditListingForm/EditListingForm'
 
 function EditListingPage(props) {
     function handleEditSuccess() {
+        // const id = props.match.params.id
         const { history } = props
         history.push('/list/:listId')
     }
