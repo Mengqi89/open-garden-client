@@ -1,6 +1,5 @@
 import React from 'react';
 import AddListingForm from '../AddListingForm/AddListingForm'
-import ListingPage from '../ListingPage/ListingPage'
 import { Link } from 'react-router-dom'
 
 function AddListingPage(props) {

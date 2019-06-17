@@ -4,48 +4,12 @@ import SearchBar from '../SearchBar/SearchBar'
 import FilterableList from '../FilterableList/FilterableList'
 
 
-
 class ListPage extends Component {
     state = {
         zip: '',
         filterOption: 'all'
     }
 
-    // componentDidMount() {
-    //     this.setState({
-    //         listings: this.state.all
-    //     })
-    // }
-
-    // handleZipChange = event => {
-    //     const zip = event.target.value
-    //     this.setState({
-    //         zip
-    //     })
-    //     if (zip === '') {
-    //         this.setState({
-    //             listings: this.state.all
-    //         })
-    //     } else {
-    //         const filteredList = this.state.all.filter(listing => listing.zip === zip)
-    //         this.setState({
-    //             listings: filteredList
-    //         })
-    //     }
-    // }
-    // handleTypeChange = event => {
-    //     const query = event.target.value
-    //     if (query === 'all') {
-    //         this.setState({
-    //             listings: this.state.all
-    //         })
-    //     } else {
-    //         const filteredList = this.state.all.filter(listing => listing.type === query)
-    //         this.setState({
-    //             listings: filteredList
-    //         })
-    //     }
-    // }
     updateZip(zip) {
         this.setState({
             zip
@@ -69,7 +33,7 @@ class ListPage extends Component {
                     handleZip={zip => this.updateZip(zip)}
                     handleFilterChange={option => this.updateFilterOption(option)} />
                 <FilterableList
-                    listings={LISTINGS}
+                    listings={this.props.list}
                     zip={this.state.zip}
                     option={this.state.filterOption} />
             </div>
