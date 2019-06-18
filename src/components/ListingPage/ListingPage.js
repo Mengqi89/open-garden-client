@@ -32,6 +32,10 @@ function ListingPage(props) {
                 </div>
                 <div>
                     <h3>Contact</h3>
+                    <p>{listing[0].contact}</p>
+                </div>
+                <div>
+                    <h3>Zip</h3>
                     <p>{listing[0].zip}</p>
                 </div>
             </section>

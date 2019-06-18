@@ -6,7 +6,7 @@ function MyListItem(props) {
     const myList = props.list.map(listing =>
         <li key={listing.id}>
             <Link to={`/list/${listing.id}`}>{listing.title}</Link>
-            <Link to={`/list/edit/${listing.id}`}><button>Edit</button></Link>
+            <Link to={`/edit/${listing.id}`}><button>Edit</button></Link>
             <form onSubmit={props.handleDelete} name={listing.id}>
                 <button type='submit'>Delete</button>
             </form>

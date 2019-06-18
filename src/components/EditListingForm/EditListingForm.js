@@ -1,44 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
-class EditListingPage extends Component {
+class EditListingForm extends Component {
     state = {
-        id: 0,
-        listing_title: '5 organic tomatoes',
-        listing_summary: 'delicious vegetables',
-        listing_type: 'vegetable',
-        contact: 'dunder@dunder.net',
-        address: 'dunder residence, Washington DC, USA'
+        id: this.props.id,
+        title: this.props.myList.filter(listing => listing.id === this.props.id)[0].title,
+        summary: this.props.myList.filter(listing => listing.id === this.props.id)[0].summary,
+        contact: this.props.myList.filter(listing => listing.id === this.props.id)[0].contact,
+        address: this.props.myList.filter(listing => listing.id === this.props.id)[0].address,
+        type: this.props.myList.filter(listing => listing.id === this.props.id)[0].type,
+        zip: this.props.myList.filter(listing => listing.id === this.props.id)[0].zip
     }
     handleChange = event => {
+        console.log('hello')
         const name = event.target.name
         this.setState({
             [name]: event.target.value
         })
     }
-    handleSubmit = event => {
-        event.preventDefault()
-        window.localStorage.setItem('Form Data', this.state)
-        this.props.onEditSuccess()
-    }
+    // handleSubmit = event => {
+    //     event.preventDefault()
+    //     window.localStorage.setItem('Form Data', this.state)
+    //     this.props.onEditSuccess()
+    // }
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(event) => this.props.handleUpdate(event, this.state)}>
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
-                        <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' value={this.state.listing_title} onChange={this.handleChange} required />
+                        <input id='listing-title' name='title' type='text' placeholder='five tomatoes' value={this.state.title} onChange={this.handleChange} required />
 
                     </div>
                     <div>
                         <label htmlFor='listing-summary'>Summary: </label><br />
-                        <textarea id='listing-summary' name='listing_summary' rows='10' value={this.state.listing_summary} onChange={this.handleChange} />
+                        <textarea id='listing-summary' name='summary' rows='10' value={this.state.summary} onChange={this.handleChange} />
                     </div>
                     <div>
                         <p>Select listing type</p>
-                        <input type='radio' id='vegetable' name='listing_type' value='vegetable' onChange={this.handleChange} />
+                        <input type='radio' id='vegetable' name='type' checked={this.state.type === 'vegetable'} value='vegetable' onChange={this.handleChange} />
                         <label htmlFor='vegetable'>vegetable</label>
 
-                        <input type='radio' id='fruit' name='listing_type' value='fruit' onChange={this.handleChange}></input>
+                        <input type='radio' id='fruit' name='type' checked={this.state.type === 'fruit'} value='fruit' onChange={this.handleChange}></input>
                         <label htmlFor='fruit'>fruit</label>
                     </div>
                     <div>
@@ -56,4 +59,4 @@ class EditListingPage extends Component {
     }
 }
 
-export default EditListingPage;
+export default withRouter(EditListingForm);
