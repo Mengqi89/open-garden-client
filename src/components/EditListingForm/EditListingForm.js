@@ -12,17 +12,11 @@ class EditListingForm extends Component {
         zip: this.props.myList.filter(listing => listing.id === this.props.id)[0].zip
     }
     handleChange = event => {
-        console.log('hello')
         const name = event.target.name
         this.setState({
             [name]: event.target.value
         })
     }
-    // handleSubmit = event => {
-    //     event.preventDefault()
-    //     window.localStorage.setItem('Form Data', this.state)
-    //     this.props.onEditSuccess()
-    // }
     render() {
         return (
             <div>

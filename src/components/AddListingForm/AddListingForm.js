@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 class AddListingForm extends Component {
     state = {
-        listing_title: '',
-        listing_summary: '',
-        listing_type: '',
+        id: 100,
+        title: '',
+        summary: '',
+        type: '',
         contact: '',
-        address: ''
+        address: '',
+        zip: ''
     }
     handleChange = event => {
         const name = event.target.name
@@ -14,30 +16,26 @@ class AddListingForm extends Component {
             [name]: event.target.value
         })
     }
-    handleSubmit = event => {
-        event.preventDefault()
-        window.localStorage.setItem('Form Data', this.state)
-        this.props.onAddSuccess(this.state)
-    }
+
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(event) => this.props.handleAdd(event, this.state)}>
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
-                        <input id='listing-title' name='listing_title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
+                        <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
 
                     </div>
                     <div>
                         <label htmlFor='listing-summary'>Summary: </label><br />
-                        <textarea id='listing-summary' name='listing_summary' rows='10' onChange={this.handleChange} />
+                        <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
                     </div>
                     <div>
                         <p>Select listing type</p>
-                        <input type='radio' id='vegetable' name='listing_type' value='vegetable' onChange={this.handleChange} />
+                        <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
                         <label htmlFor='vegetable'>vegetable</label>
 
-                        <input type='radio' id='fruit' name='listing_type' value='fruit' onChange={this.handleChange}></input>
+                        <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
                         <label htmlFor='fruit'>fruit</label>
                     </div>
                     <div>

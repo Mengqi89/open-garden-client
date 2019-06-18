@@ -96,7 +96,6 @@ class App extends Component {
       }
     ]
   }
-
   handleDelete = (event) => {
     event.preventDefault()
     const deleteId = Number(event.target.name)
@@ -105,7 +104,6 @@ class App extends Component {
       myList: filteredList
     })
   }
-
   handleUpdate = (event, data) => {
     event.preventDefault()
     const tempData_myList = this.state.myList
@@ -123,7 +121,17 @@ class App extends Component {
       myList: tempData_myList
     })
   }
+  handleAdd = (event, data) => {
+    event.preventDefault()
+    const tempData_myList = this.state.myList
+    const tempData_listings = this.state.listings
 
+    tempData_myList.push(data)
+    tempData_listings.push(data)
+
+    console.log(tempData_listings)
+    console.log(tempData_myList)
+  }
   render() {
     return (
       <BrowserRouter>
@@ -152,7 +160,7 @@ class App extends Component {
             <Route
               exact
               path={'/add'}
-              component={AddListingPage}></Route>
+              render={() => <AddListingPage handleAdd={this.handleAdd} />}></Route>
             <Route
               exact
               path={'/mylist'}
@@ -161,10 +169,6 @@ class App extends Component {
               exact
               path={'/edit/:listId'}
               render={() => <EditListingPage myList={this.state.myList} handleUpdate={this.handleUpdate} />}></Route>
-            {/* <Route
-              exact
-              path={'/edit/:listId'}
-              render={() => <EditListingForm myList={this.state.myList} />}></Route> */}
           </main>
         </div>
       </BrowserRouter>

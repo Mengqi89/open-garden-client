@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
 function ListingPage(props) {
-
     const id = Number(props.match.params.listId)
     const listing = props.list.filter(listing => listing.id === id)
     console.log(props.list)
