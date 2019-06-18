@@ -8,6 +8,7 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
 import EditListingPage from './components/EditListingPage/EditListingPage'
 import MyListPage from './components/MyListPage/MyListPage'
+import history from './services/history'
 
 class App extends Component {
   state = {
@@ -99,9 +100,11 @@ class App extends Component {
   handleDelete = (event) => {
     event.preventDefault()
     const deleteId = Number(event.target.name)
-    const filteredList = this.state.myList.filter(listing => listing.id !== deleteId)
+    const filteredList_myList = this.state.myList.filter(listing => listing.id !== deleteId)
+    const filteredList_listings = this.state.listings.filter(listing => listing.id !== deleteId)
     this.setState({
-      myList: filteredList
+      myList: filteredList_myList,
+      listings: filteredList_listings
     })
   }
   handleUpdate = (event, data) => {
@@ -129,8 +132,12 @@ class App extends Component {
     tempData_myList.push(data)
     tempData_listings.push(data)
 
-    console.log(tempData_listings)
-    console.log(tempData_myList)
+    this.setState({
+      listings: tempData_listings,
+      myList: tempData_myList
+    })
+    history.push('/mylist/')
+
   }
   render() {
     return (
