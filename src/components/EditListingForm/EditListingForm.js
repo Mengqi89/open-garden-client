@@ -46,6 +46,10 @@ class EditListingForm extends Component {
                         <label htmlFor='address'>Address</label>
                         <input id='address' name='address' type='text' value={this.state.address} onChange={this.handleChange} required />
                     </div>
+                    <div>
+                        <label htmlFor='zip'>Zip</label>
+                        <input id='zip' name='zip' type='text' value={this.state.zip} onChange={this.handleChange} required />
+                    </div>
                     <button type='submit'>Update</button>
                 </form>
             </div>

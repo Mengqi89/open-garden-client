@@ -10,7 +10,7 @@ function ListingPage(props) {
     return (
         <div>
             <nav >
-                <Link to='/mylist'>My List</Link> <br />
+                <Link to={`/mylist/${props.userId}`}>My List</Link> <br />
                 <Link to='/list'>List</Link>
             </nav>
             <header>

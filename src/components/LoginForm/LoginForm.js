@@ -5,13 +5,13 @@ function LoginForm(props) {
 
     function handleSubmitBasicAuth(event) {
         event.preventDefault()
-        const { user_name, password } = event.target
+        const { username, password } = event.target
 
         TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(user_name.value, password.value)
+            TokenService.makeBasicAuthToken(username.value, password.value)
         )
 
-        user_name.value = ''
+        username.value = ''
         password.value = ''
         props.onLoginSuccess()
     }
@@ -19,15 +19,15 @@ function LoginForm(props) {
     return (
         <div>
             <form className='LoginForm' onSubmit={handleSubmitBasicAuth}>
-                <div className='user_name'>
-                    <label htmlFor='Login__user_name'>
+                <div className='username'>
+                    <label htmlFor='Login__username'>
                         Username
                     </label>
                     <input
-                        name='user_name'
+                        name='username'
                         type='text'
                         required
-                        id='Login__user_name' />
+                        id='Login__username' />
                 </div>
                 <div className='password'>
                     <label htmlFor='Login__password'>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
+import { Switch } from 'react-router'
 import ListPage from './components/ListPage/ListPage'
 import LandingPage from './components/LandingPage/LandingPage'
 import RegistrationPage from './components/RegistrationPage/RegistrationPage'
@@ -8,7 +9,6 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
 import EditListingPage from './components/EditListingPage/EditListingPage'
 import MyListPage from './components/MyListPage/MyListPage'
-import history from './services/history'
 
 class App extends Component {
   state = {
@@ -95,7 +95,8 @@ class App extends Component {
         type: 'fruit',
         zip: '84105'
       }
-    ]
+    ],
+    userId: 'dunder'
   }
   handleDelete = (event) => {
     event.preventDefault()
@@ -123,6 +124,8 @@ class App extends Component {
       listings: tempData_listings,
       myList: tempData_myList
     })
+    const { history } = this.props
+    history.push('/mylist/dunder')
   }
   handleAdd = (event, data) => {
     event.preventDefault()
@@ -136,12 +139,12 @@ class App extends Component {
       listings: tempData_listings,
       myList: tempData_myList
     })
-    history.push('/mylist/')
-
+    const { history } = this.props
+    history.push('/mylist/dunder')
   }
   render() {
     return (
-      <BrowserRouter>
+      <Switch>
         <div className='App'>
           <main className='App__main'>
             <Route
@@ -151,11 +154,11 @@ class App extends Component {
             <Route
               exact
               path={'/list'}
-              render={() => <ListPage list={this.state.listings} />}></Route>
+              render={() => <ListPage list={this.state.listings} userId={this.state.userId} />}></Route>
             <Route
               exact
               path={'/list/:listId'}
-              render={() => <ListingPage list={this.state.listings} />}></Route>
+              render={() => <ListingPage list={this.state.listings} userId={this.state.userId} />}></Route>
             <Route
               exact
               path={'/register'}
@@ -170,17 +173,17 @@ class App extends Component {
               render={() => <AddListingPage handleAdd={this.handleAdd} />}></Route>
             <Route
               exact
-              path={'/mylist'}
+              path={'/mylist/:userId'}
               render={() => <MyListPage myList={this.state.myList} handleDelete={this.handleDelete} />}></Route>
             <Route
               exact
-              path={'/edit/:listId'}
+              path={'/list/:listId/edit'}
               render={() => <EditListingPage myList={this.state.myList} handleUpdate={this.handleUpdate} />}></Route>
           </main>
         </div>
-      </BrowserRouter>
+      </Switch>
     )
   }
 }
 
-export default App
+export default withRouter(App)

@@ -26,7 +26,7 @@ class ListPage extends Component {
         return (
             <div className='App__home'>
                 <nav >
-                    <Link to='/mylist'>My List</Link>
+                    <Link to={`/mylist/${this.props.userId}`}>My List</Link>
                 </nav>
                 <Link to='/add'><button type='submit'>Start a Share!</button></Link>
                 <SearchBar

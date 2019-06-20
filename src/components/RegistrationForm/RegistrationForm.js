@@ -4,7 +4,7 @@ class RegistrationForm extends Component {
     state = {
         first_name: '',
         last_name: '',
-        user_name: '',
+        username: '',
         email: '',
         password: ''
     }
@@ -47,15 +47,15 @@ class RegistrationForm extends Component {
                             id='Registration__last_name'
                             onChange={this.handleChange} />
                     </div>
-                    <div className='user_name'>
-                        <label htmlFor='Registration__user_name'>
+                    <div className='username'>
+                        <label htmlFor='Registration__username'>
                             Username
                         </label>
                         <input
-                            name='user_name'
+                            name='username'
                             type='text'
                             required
-                            id='Registration__user_name'
+                            id='Registration__username'
                             onChange={this.handleChange} />
                     </div>
                     <div className='email'>

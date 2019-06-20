@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class AddListingForm extends Component {
     state = {
@@ -16,7 +16,6 @@ class AddListingForm extends Component {
             [name]: event.target.value
         })
     }
-
     render() {
         return (
             <div>
@@ -45,6 +44,10 @@ class AddListingForm extends Component {
                     <div>
                         <label htmlFor='address'>Address</label>
                         <input id='address' name='address' type='text' required onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor='zip'>Zip</label>
+                        <input id='zip' name='zip' type='text' required onChange={this.handleChange} />
                     </div>
                     <button type='submit'>Share!</button>
                 </form>
