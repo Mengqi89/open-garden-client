@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
-import { Switch } from 'react-router'
+import { Route, Switch } from 'react-router-dom'
 import ListPage from './components/ListPage/ListPage'
 import LandingPage from './components/LandingPage/LandingPage'
 import RegistrationPage from './components/RegistrationPage/RegistrationPage'
@@ -12,91 +11,9 @@ import MyListPage from './components/MyListPage/MyListPage'
 
 class App extends Component {
   state = {
-    listings: [
-      {
-        id: 0,
-        title: '5 organic tomatoes',
-        summary: 'delicious tomatoes',
-        address: '123 Lucky Lane, 84103',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84103'
-      },
-      {
-        id: 1,
-        title: 'fresh peaches',
-        summary: 'good peaches',
-        address: '123 Sad Lane, 84102',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84102'
-      },
-      {
-        id: 2,
-        title: 'one watermelon',
-        summary: 'a giant watermelon',
-        address: '311 Snake Lane, 84105',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84105'
-      },
-      {
-        id: 3,
-        title: 'potatoes',
-        summary: 'organic potatoes',
-        address: '333 Trump Lane, 84103',
-        contact: 'dunder@dunder.net',
-        type: 'vegetable',
-        zip: '84103'
-      },
-      {
-        id: 5,
-        title: 'peaches',
-        summary: 'good peaches',
-        address: '123 Sad Lane, 84102',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84102'
-      },
-      {
-        id: 9,
-        title: 'watermelon',
-        summary: 'a giant watermelon',
-        address: '311 Snake Lane, 84105',
-        type: 'fruit',
-        zip: '84105'
-      }
-    ],
-    myList: [
-      {
-        id: 0,
-        title: '5 organic tomatoes',
-        summary: 'delicious tomatoes',
-        address: '123 Lucky Lane, 84103',
-        contact: 'dunder@dunder.net',
-        type: 'vegetable',
-        zip: '84103'
-      },
-      {
-        id: 5,
-        title: 'peaches',
-        summary: 'good peaches',
-        address: '123 Sad Lane, 84102',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84102'
-      },
-      {
-        id: 9,
-        title: 'watermelon',
-        summary: 'a giant watermelon',
-        address: '311 Snake Lane, 84105',
-        contact: 'dunder@dunder.net',
-        type: 'fruit',
-        zip: '84105'
-      }
-    ],
-    userId: 'dunder'
+    listings: [],
+    myList: [],
+    userId: ''
   }
   handleDelete = (event) => {
     event.preventDefault()
@@ -124,8 +41,8 @@ class App extends Component {
       listings: tempData_listings,
       myList: tempData_myList
     })
-    const { history } = this.props
-    history.push('/mylist/dunder')
+    // const { history } = this.props
+    // history.push('/mylist/dunder')
   }
   handleAdd = (event, data) => {
     event.preventDefault()
@@ -139,14 +56,14 @@ class App extends Component {
       listings: tempData_listings,
       myList: tempData_myList
     })
-    const { history } = this.props
-    history.push('/mylist/dunder')
+    // const { history } = this.props
+    // history.push('/mylist/dunder')
   }
   render() {
     return (
-      <Switch>
-        <div className='App'>
-          <main className='App__main'>
+      <div className='App'>
+        <main className='App__main'>
+          <Switch>
             <Route
               exact
               path={'/'}
@@ -154,11 +71,11 @@ class App extends Component {
             <Route
               exact
               path={'/list'}
-              render={() => <ListPage list={this.state.listings} userId={this.state.userId} />}></Route>
+              component={ListPage}></Route>
             <Route
               exact
-              path={'/list/:listId'}
-              render={() => <ListingPage list={this.state.listings} userId={this.state.userId} />}></Route>
+              path={'/list/:listingId'}
+              component={ListingPage}></Route>
             <Route
               exact
               path={'/register'}
@@ -173,17 +90,17 @@ class App extends Component {
               render={() => <AddListingPage handleAdd={this.handleAdd} />}></Route>
             <Route
               exact
-              path={'/mylist/:userId'}
-              render={() => <MyListPage myList={this.state.myList} handleDelete={this.handleDelete} />}></Route>
+              path={'/:myUserName/'}
+              render={() => <MyListPage handleDelete={this.handleDelete} />}></Route>
             <Route
               exact
               path={'/list/:listId/edit'}
               render={() => <EditListingPage myList={this.state.myList} handleUpdate={this.handleUpdate} />}></Route>
-          </main>
-        </div>
-      </Switch>
+          </Switch>
+        </main>
+      </div>
     )
   }
 }
 
-export default withRouter(App)
+export default App

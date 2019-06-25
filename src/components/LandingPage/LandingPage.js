@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
+import ListApiService from '../../services/list-api-service'
 import { Link } from 'react-router-dom'
 
 class LandingPage extends Component {
     state = {
+        zip: null,
         sum: null
     }
 
-    // onPositionReceived = (position) => {
-    //     console.log(position)
-    // }
-
-    // locationNotReceived = (positionError) => {
-    //     console.log(positionError)
-    // }
-
     handleSum = event => {
         event.preventDefault()
-        this.setState({
-            sum: 30
-        })
-        // navigator.geolocation.getCurrentPosition(this.onPositionReceived, this.locationNotReceived)
+        const zip = this.state.zip
+        console.log(zip)
+        ListApiService.getList()
+            .then(list => list.filter(listing => listing.zip === zip))
+            .then(filteredList => filteredList.length)
+            .then(sum => this.setState({ sum }))
+
+    }
+    handleChange = event => {
+        event.preventDefault()
+        const zip = event.target.value
+        console.log(event.target.value)
+        this.setState({ zip })
     }
 
     render() {
@@ -37,10 +40,12 @@ class LandingPage extends Component {
                 </div>
                 <div className='App_preview'>
                     <h2>How many are sharing in your neighbhorhood?</h2>
-                    <form onClick={this.handleSum}>
-                        <button type="submit">Find out!</button>
+                    <form onSubmit={this.handleSum}>
+                        <label htmlFor='zip'>Zipcode: </label>
+                        <input type='text' id='zip' placeholder='84103' name='zip' required onChange={this.handleChange} />
+                        <button type='submit'>Find out!</button>
                     </form>
-                    {this.state.sum}
+                    <span>{this.state.sum} </span>
                 </div>
             </div>
         )

@@ -4,8 +4,10 @@ import 'normalize.css'
 import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
+// import ListProvider from './contexts/ListContext'
 
 ReactDOM.render(
-    <BrowserRouter >
+    <BrowserRouter>
         <App />
-    </BrowserRouter>, document.getElementById('root'));
+    </BrowserRouter>
+    , document.getElementById('root'));

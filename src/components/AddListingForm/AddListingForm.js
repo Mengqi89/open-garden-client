@@ -19,7 +19,7 @@ class AddListingForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(event) => this.props.handleAdd(event, this.state)}>
+                <form onSubmit={(event) => this.props.handleAdd(event, this.state)} >
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
                         <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
