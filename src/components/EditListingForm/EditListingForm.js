@@ -22,9 +22,7 @@ class EditListingForm extends Component {
     handleUpdate = (event, listing) => {
         event.preventDefault()
         const listingId = parseInt(this.props.match.params.listingId)
-        console.log(listingId)
         const username = this.props.myUserName
-        console.log(username)
         console.log(listing)
         ListApiService.patchListing(username, listingId, listing)
             .then(listing => listing.id)
@@ -38,7 +36,6 @@ class EditListingForm extends Component {
         })
     }
     render() {
-
         return (
             <div>
                 <form onSubmit={(event) => this.handleUpdate(event, this.state)}>
