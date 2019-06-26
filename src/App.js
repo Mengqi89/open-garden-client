@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+// import PrivateRoute from '../src/Utils/PrivateRoute'
+// import PublicOnlyRoute from '../src/Utils/PublicOnlyRoute'
 import ListPage from './components/ListPage/ListPage'
 import LandingPage from './components/LandingPage/LandingPage'
 import RegistrationPage from './components/RegistrationPage/RegistrationPage'
@@ -8,18 +10,40 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
 import EditListingPage from './components/EditListingPage/EditListingPage'
 import MyListPage from './components/MyListPage/MyListPage'
+// import UsersApiService from './services/users-api-service'
+import config from '../src/config'
 
 class App extends Component {
   state = {
-    listings: [],
-    myList: [],
-    userId: ''
+    list: [],
+    myUserName: '',
+    myUserId: null
   }
+
+  getUserIdbyUsername = (username) => {
+    return fetch(`${config.API_ENDPOINT}/users`, {
+      headers: {}
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json())
+      .then(users => users.filter(user => user.username === username))
+      .then(user => user[0].id)
+      .then(myUserId => this.setState({ myUserId }))
+  }
+
+  updateUserName = (myUserName) => {
+    this.getUserIdbyUsername(myUserName)
+    this.setState({ myUserName })
+  }
+
+  updateListings = (list) => {
+    this.setState({ list })
+  }
+
   handleDelete = (event) => {
     event.preventDefault()
     const deleteId = Number(event.target.name)
     const filteredList_myList = this.state.myList.filter(listing => listing.id !== deleteId)
-    const filteredList_listings = this.state.listings.filter(listing => listing.id !== deleteId)
+    const filteredList_listings = this.state.list.filter(listing => listing.id !== deleteId)
     this.setState({
       myList: filteredList_myList,
       listings: filteredList_listings
@@ -32,13 +56,13 @@ class App extends Component {
     const index_myList = this.state.myList.indexOf(dataToReplace_myList[0])
     tempData_myList.splice(index_myList, 1, data)
 
-    const tempData_listings = this.state.listings
+    const tempData_listings = this.state.list
     const dataToReplace_listings = tempData_listings.filter(item => item.id === data.id)
-    const index_listings = this.state.listings.indexOf(dataToReplace_listings[0])
+    const index_listings = this.state.list.indexOf(dataToReplace_listings[0])
     tempData_listings.splice(index_listings, 1, data)
 
     this.setState({
-      listings: tempData_listings,
+      list: tempData_listings,
       myList: tempData_myList
     })
     // const { history } = this.props
@@ -53,7 +77,7 @@ class App extends Component {
     tempData_listings.push(data)
 
     this.setState({
-      listings: tempData_listings,
+      list: tempData_listings,
       myList: tempData_myList
     })
     // const { history } = this.props
@@ -68,14 +92,17 @@ class App extends Component {
               exact
               path={'/'}
               component={LandingPage}></Route>
+            {/* done */}
             <Route
               exact
               path={'/list'}
-              component={ListPage}></Route>
+              render={() => <ListPage updateListings={this.updateListings} list={this.state.list} myUserName={this.state.myUserName} />}></Route>
+            {/* done */}
             <Route
               exact
               path={'/list/:listingId'}
-              component={ListingPage}></Route>
+              render={() => <ListingPage list={this.state.list} myUserName={this.state.myUserName} />}></Route>
+            {/* done */}
             <Route
               exact
               path={'/register'}
@@ -83,7 +110,8 @@ class App extends Component {
             <Route
               exact
               path={'/login'}
-              component={LoginPage}></Route>
+              render={() => <LoginPage handleUserName={this.updateUserName} />}></Route>
+            {/* done */}
             <Route
               exact
               path={'/add'}
@@ -91,7 +119,8 @@ class App extends Component {
             <Route
               exact
               path={'/:myUserName/'}
-              render={() => <MyListPage handleDelete={this.handleDelete} />}></Route>
+              render={() => <MyListPage myUserId={this.state.myUserId} list={this.state.list} />}></Route>
+            {/* done */}
             <Route
               exact
               path={'/list/:listId/edit'}

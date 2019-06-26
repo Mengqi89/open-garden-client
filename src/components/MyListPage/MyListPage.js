@@ -6,6 +6,8 @@ import ListApiService from '../../services/list-api-service'
 
 class MyListPage extends Component {
     state = {
+        // list: this.props.list,
+        // myUserId: this.props.myUserId,
         myList: []
     }
 
@@ -15,19 +17,19 @@ class MyListPage extends Component {
             .then(myList => this.setState({ myList }))
     }
 
-    // handleDelete = (event) => {
-    //     event.preventDefault()
-    //     const deleteId = Number(event.target.name)
-    //     const filteredList_myList = this.state.myList.filter(listing => listing.id !== deleteId)
-    //     const filteredList_listings = this.state.listings.filter(listing => listing.id !== deleteId)
-    //     console.log(deleteId)
-    //     console.log(filteredList_myList)
+    handleDelete = (event) => {
+        event.preventDefault()
+        const deleteId = Number(event.target.name)
+        const filteredList_myList = this.state.myList.filter(listing => listing.id !== deleteId)
+        const filteredList_listings = this.state.listings.filter(listing => listing.id !== deleteId)
+        console.log(deleteId)
+        console.log(filteredList_myList)
 
-    //     this.setState({
-    //         myList: filteredList_myList,
-    //         listings: filteredList_listings
-    //     })
-    // }
+        this.setState({
+            myList: filteredList_myList,
+            listings: filteredList_listings
+        })
+    }
 
     render() {
         const myList = this.state.myList
@@ -37,7 +39,9 @@ class MyListPage extends Component {
                     <Link to='/list'>List</Link>
                 </nav>
                 <h2>My List</h2>
-                <MyListItem list={myList} handleDelete={this.props.handleDelete} />
+                <MyListItem list={myList}
+                    handleDelete={this.props.handleDelete}
+                />
             </div>
         )
     }

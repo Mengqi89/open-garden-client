@@ -1,24 +1,41 @@
 import React from 'react'
+import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
 function LoginForm(props) {
 
-    function handleSubmitBasicAuth(event) {
+    // function handleSubmitBasicAuth(event) {
+    //     event.preventDefault()
+    //     const { username, password } = event.target
+
+    //     TokenService.saveAuthToken(
+    //         TokenService.makeBasicAuthToken(username.value, password.value)
+    //     )
+
+    //     username.value = ''
+    //     password.value = ''
+    //     props.onLoginSuccess()
+    // }
+
+    function handleSubmitJwtAuth(event) {
         event.preventDefault()
         const { username, password } = event.target
 
-        TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(username.value, password.value)
-        )
-
-        username.value = ''
-        password.value = ''
-        props.onLoginSuccess()
+        AuthApiService.postLogin({
+            username: username.value,
+            password: password.value
+        })
+            .then(res => {
+                TokenService.saveAuthToken(res.authToken)
+                props.onLoginSuccess(username.value)
+                username.value = ''
+                password.value = ''
+            })
     }
 
     return (
         <div>
-            <form className='LoginForm' onSubmit={handleSubmitBasicAuth}>
+            <form className='LoginForm' onSubmit={handleSubmitJwtAuth}>
                 <div className='username'>
                     <label htmlFor='Login__username'>
                         Username

@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 import LoginForm from '../LoginForm/LoginForm'
 import { Link } from 'react-router-dom'
 
 function LoginPage(props) {
 
-    function handleLoginSuccess() {
-        const { location, history } = props
-        const destination = (location.state || {}).from || '/list'
-        history.push(destination)
+    function handleLoginSuccess(username) {
+        const { history } = props
+        history.push('/list')
+        props.handleUserName(username)
     }
 
     return (
@@ -21,4 +22,6 @@ function LoginPage(props) {
     );
 };
 
-export default LoginPage;
+export default withRouter(LoginPage)
+
+//!wW101010

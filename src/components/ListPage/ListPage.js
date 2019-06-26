@@ -27,18 +27,21 @@ class ListPage extends Component {
 
     componentDidMount() {
         ListApiService.getList()
-            .then(list => this.setState({ list }))
-
+            .then(list => this.props.updateListings(list)
+            )
     }
 
     render() {
-        const list = this.state.list
+        const list = this.props.list
+        const username = this.props.myUserName
         return (
             <div className='App__home'>
                 <nav >
-                    <Link to={`/dunder1/`}>My List</Link>
+                    <Link to={`/${username}/`}>My List</Link>
                 </nav>
+
                 <Link to='/add'><button type='submit'>Start a Share!</button></Link>
+
                 <SearchBar
                     handleZip={zip => this.updateZip(zip)}
                     handleFilterChange={option => this.updateFilterOption(option)} />

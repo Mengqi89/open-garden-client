@@ -15,12 +15,12 @@ class ListingPage extends Component {
 
     render() {
         const listing = this.state.listing
-        console.log(this.props.list)
-        console.log(listing)
+        const myUserName = this.props.myUserName
+
         return (
             <div>
                 <nav >
-                    <Link to={`/dunder1/`}>My List</Link> <br />
+                    <Link to={`/${myUserName}/`}>My List</Link> <br />
                     <Link to='/list'>List</Link>
                 </nav>
                 <header>
