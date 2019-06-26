@@ -27,7 +27,7 @@ class ListPage extends Component {
 
     componentDidMount() {
         ListApiService.getList()
-            .then(list => this.props.updateListings(list)
+            .then(list => this.props.updateList(list)
             )
     }
 

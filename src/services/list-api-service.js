@@ -49,6 +49,20 @@ const ListApiService = {
         }).then(res =>
             !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
         )
+    },
+    patchListing(username, listingId, listing) {
+        return fetch(`${config.API_ENDPOINT}/list/users/${username}/${listingId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify({
+                listing
+            })
+        }).then(res =>
+            !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+        )
     }
 }
 

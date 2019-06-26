@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom'
 
 
 function MyListItem(props) {
+
     const myList = props.list.map(listing =>
         <li key={listing.id}>
             <Link to={`/list/${listing.id}`}>{listing.title}</Link>
-            <Link to={`/list/${listing.id}/edit`}><button>Edit</button></Link>
+            <Link to={`/list/${listing.id}/edit`}>
+                <form onClick={() => props.getEditListing(listing.id)}>
+                    <button type='click'>Edit</button>
+                </form>
+            </Link>
             <form onSubmit={props.handleDelete} name={listing.id}>
                 <button type='submit'>Delete</button>
             </form>

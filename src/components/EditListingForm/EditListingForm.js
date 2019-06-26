@@ -1,16 +1,36 @@
 import React, { Component } from 'react'
+import ListApiService from '../../services/list-api-service'
 import { withRouter } from 'react-router-dom'
 
 class EditListingForm extends Component {
+
     state = {
-        id: this.props.id,
-        title: this.props.myList.filter(listing => listing.id === this.props.id)[0].title,
-        summary: this.props.myList.filter(listing => listing.id === this.props.id)[0].summary,
-        contact: this.props.myList.filter(listing => listing.id === this.props.id)[0].contact,
-        address: this.props.myList.filter(listing => listing.id === this.props.id)[0].address,
-        type: this.props.myList.filter(listing => listing.id === this.props.id)[0].type,
-        zip: this.props.myList.filter(listing => listing.id === this.props.id)[0].zip
+        title: this.props.editListing.title,
+        summary: this.props.editListing.summary,
+        address: this.props.editListing.address,
+        type: this.props.editListing.type,
+        contact: this.props.editListing.contact,
+        zip: this.props.editListing.zip
     }
+
+    handleUpdateSuccess = (listingId) => {
+        const { history } = this.props
+        console.log(listingId)
+        history.push(`/list/${listingId}`)
+    }
+
+    handleUpdate = (event, listing) => {
+        event.preventDefault()
+        const listingId = parseInt(this.props.match.params.listingId)
+        console.log(listingId)
+        const username = this.props.myUserName
+        console.log(username)
+        console.log(listing)
+        ListApiService.patchListing(username, listingId, listing)
+            .then(listing => listing.id)
+            .then(listingId => this.handleUpdateSuccess(listingId))
+    }
+
     handleChange = event => {
         const name = event.target.name
         this.setState({
@@ -18,9 +38,10 @@ class EditListingForm extends Component {
         })
     }
     render() {
+
         return (
             <div>
-                <form onSubmit={(event) => this.props.handleUpdate(event, this.state)}>
+                <form onSubmit={(event) => this.handleUpdate(event, this.state)}>
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
                         <input id='listing-title' name='title' type='text' placeholder='five tomatoes' value={this.state.title} onChange={this.handleChange} required />

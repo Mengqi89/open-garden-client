@@ -14,7 +14,10 @@ class MyListPage extends Component {
     componentDidMount() {
         const myUserName = this.props.match.params.myUserName
         ListApiService.getMyList(myUserName)
-            .then(myList => this.setState({ myList }))
+            .then(myList => {
+                this.props.updateMyList(myList)
+                this.setState({ myList })
+            })
     }
 
     handleDelete = (event) => {
@@ -29,6 +32,7 @@ class MyListPage extends Component {
 
     render() {
         const myList = this.state.myList
+        console.log(myList)
         return (
             <div>
                 <nav >
@@ -37,6 +41,7 @@ class MyListPage extends Component {
                 <h2>My List</h2>
                 <MyListItem list={myList}
                     handleDelete={this.handleDelete}
+                    getEditListing={this.props.getEditListing}
                 />
             </div>
         )

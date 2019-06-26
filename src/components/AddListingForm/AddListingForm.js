@@ -15,8 +15,6 @@ class AddListingForm extends Component {
 
     handleAddSuccess = (listingId) => {
         const { history } = this.props
-        console.log(history)
-        console.log(listingId)
         history.push(`/list/${listingId}`)
     }
 
