@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import AuthApiService from '../../services/auth-api-service'
 
 class RegistrationForm extends Component {
+    static defaultProps = {
+        onRegistrationSuccess: () => { }
+    }
+
     state = {
+        error: null,
         first_name: '',
         last_name: '',
         username: '',
@@ -16,14 +22,39 @@ class RegistrationForm extends Component {
     }
     handleSubmit = event => {
         event.preventDefault()
-        console.log('submit success')
-        window.localStorage.setItem('Registration Data', this.state)
-        this.props.onRegistrationSuccess()
+        console.log('to register')
+        AuthApiService
+            .postUser({
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                password: this.state.password,
+                email: this.state.email,
+                username: this.state.username
+            })
+            .then(user => {
+                console.log('successful')
+                this.setState({
+                    first_name: '',
+                    last_name: '',
+                    username: '',
+                    email: '',
+                    password: ''
+                })
+                this.props.onRegistrationSuccess()
+            })
+            .catch(res => {
+                console.log('error caught')
+                this.setState({ error: res.error.message })
+            })
     }
     render() {
+        const { error } = this.state
         return (
             <div>
                 <form className='RegistrationForm' onSubmit={this.handleSubmit}>
+                    <div role='alert'>
+                        {error && <p className='red'>{error}</p>}
+                    </div>
                     <p>All fields required</p>
                     <div className='first_name'>
                         <label htmlFor='Registration__first_name'>
