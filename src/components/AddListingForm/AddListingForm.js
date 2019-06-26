@@ -1,25 +1,44 @@
 import React, { Component } from 'react'
+import ListApiService from '../../services/list-api-service'
+import { withRouter } from 'react-router-dom'
 
 class AddListingForm extends Component {
     state = {
-        id: 100,
         title: '',
         summary: '',
         type: '',
         contact: '',
         address: '',
-        zip: ''
+        zip: '',
+        username: parseInt(this.props.myUserId)
     }
+
+    handleAddSuccess = (listingId) => {
+        const { history } = this.props
+        console.log(history)
+        console.log(listingId)
+        history.push(`/list/${listingId}`)
+    }
+
     handleChange = event => {
         const name = event.target.name
         this.setState({
             [name]: event.target.value
         })
     }
+    handleAdd = event => {
+        event.preventDefault()
+        const newListing = this.state
+        console.log(newListing)
+        ListApiService.postListing(newListing)
+            .then(listing => listing.id)
+            .then(listingId => this.handleAddSuccess(listingId))
+    }
+
     render() {
         return (
             <div>
-                <form onSubmit={(event) => this.props.handleAdd(event, this.state)} >
+                <form onSubmit={(event) => this.handleAdd(event)} >
                     <div>
                         <label htmlFor='listing-title'>Title: </label><br />
                         <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
@@ -56,7 +75,7 @@ class AddListingForm extends Component {
     }
 }
 
-export default AddListingForm
+export default withRouter(AddListingForm)
 
 //1 class component
 //2 state to hold all data
