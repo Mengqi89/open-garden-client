@@ -4,6 +4,10 @@ import { withRouter } from 'react-router-dom'
 
 class EditListingForm extends Component {
 
+    static defaultProps = {
+        editListing: {}
+    }
+
     state = {
         title: this.props.editListing.title,
         summary: this.props.editListing.summary,

@@ -6,8 +6,6 @@ import ListApiService from '../../services/list-api-service'
 
 class MyListPage extends Component {
     state = {
-        // list: this.props.list,
-        // myUserId: this.props.myUserId,
         myList: []
     }
 

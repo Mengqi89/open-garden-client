@@ -29,7 +29,7 @@ function FilterableList(props) {
         <div>
             {list}
         </div>
-    );
-};
+    )
+}
 
 export default FilterableList;

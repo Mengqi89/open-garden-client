@@ -3,6 +3,7 @@ import EditListingForm from '../EditListingForm/EditListingForm'
 import { withRouter } from 'react-router-dom'
 
 function EditListingPage(props) {
+
     const id = Number(props.match.params.listId)
 
     function handleEditSuccess() {

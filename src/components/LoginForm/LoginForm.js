@@ -4,19 +4,6 @@ import TokenService from '../../services/token-service'
 
 function LoginForm(props) {
 
-    // function handleSubmitBasicAuth(event) {
-    //     event.preventDefault()
-    //     const { username, password } = event.target
-
-    //     TokenService.saveAuthToken(
-    //         TokenService.makeBasicAuthToken(username.value, password.value)
-    //     )
-
-    //     username.value = ''
-    //     password.value = ''
-    //     props.onLoginSuccess()
-    // }
-
     function handleSubmitJwtAuth(event) {
         event.preventDefault()
         const { username, password } = event.target

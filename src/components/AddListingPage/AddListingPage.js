@@ -5,11 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 function AddListingPage(props) {
 
-    // function handleAddSuccess() {
-    //     const { history } = props
-    //     history.push(`/list/:listId`)
-    // }
-
     return (
         <div>
             <nav>
