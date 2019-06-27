@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
-function LoginForm(props) {
+class LoginForm extends Component {
 
-    function handleSubmitJwtAuth(event) {
+    state = { error: null }
+
+    handleSubmitJwtAuth = (event) => {
         event.preventDefault()
+        this.setState({ error: null })
         const { username, password } = event.target
 
         AuthApiService.postLogin({
@@ -14,15 +17,20 @@ function LoginForm(props) {
         })
             .then(res => {
                 TokenService.saveAuthToken(res.authToken)
-                props.onLoginSuccess(username.value)
+                this.props.onLoginSuccess(username.value)
                 username.value = ''
                 password.value = ''
             })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
     }
+    render() {
+        const { error } = this.state
 
-    return (
-        <div>
-            <form className='LoginForm' onSubmit={handleSubmitJwtAuth}>
+        return (
+            <form className='LoginForm' onSubmit={(event) => this.handleSubmitJwtAuth(event)}>
+                <div role='alert'>{error && <p className='red'>{error}</p>}</div>
                 <div className='username'>
                     <label htmlFor='Login__username'>
                         Username
@@ -45,8 +53,9 @@ function LoginForm(props) {
                 </div>
                 <button type='submit'>Login</button>
             </form>
-        </div>
-    );
-};
+        )
+    }
+
+}
 
 export default LoginForm;

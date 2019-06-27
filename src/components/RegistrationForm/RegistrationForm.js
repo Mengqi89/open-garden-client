@@ -22,7 +22,8 @@ class RegistrationForm extends Component {
     }
     handleSubmit = event => {
         event.preventDefault()
-        console.log('to register')
+
+        this.setState({ error: null })
         AuthApiService
             .postUser({
                 first_name: this.state.first_name,
@@ -44,76 +45,74 @@ class RegistrationForm extends Component {
             })
             .catch(res => {
                 console.log('error caught')
-                this.setState({ error: res.error.message })
+                this.setState({ error: res.error })
             })
     }
     render() {
         const { error } = this.state
         return (
-            <div>
-                <form className='RegistrationForm' onSubmit={this.handleSubmit}>
-                    <div role='alert'>
-                        {error && <p className='red'>{error}</p>}
-                    </div>
-                    <p>All fields required</p>
-                    <div className='first_name'>
-                        <label htmlFor='Registration__first_name'>
-                            First Name
+            <form className='RegistrationForm' onSubmit={this.handleSubmit}>
+                <div role='alert'>
+                    {error && <p className='red'>{error}</p>}
+                </div>
+                <p>All fields required</p>
+                <div className='first_name'>
+                    <label htmlFor='Registration__first_name'>
+                        First Name
                         </label>
-                        <input
-                            name='first_name'
-                            type='text'
-                            required
-                            id='Registration__first_name'
-                            onChange={this.handleChange} />
-                    </div>
-                    <div className='last_name'>
-                        <label htmlFor='Registration__last_name'>
-                            Last Name
+                    <input
+                        name='first_name'
+                        type='text'
+                        required
+                        id='Registration__first_name'
+                        onChange={this.handleChange} />
+                </div>
+                <div className='last_name'>
+                    <label htmlFor='Registration__last_name'>
+                        Last Name
                         </label>
-                        <input
-                            name='last_name'
-                            type='text'
-                            required
-                            id='Registration__last_name'
-                            onChange={this.handleChange} />
-                    </div>
-                    <div className='username'>
-                        <label htmlFor='Registration__username'>
-                            Username
+                    <input
+                        name='last_name'
+                        type='text'
+                        required
+                        id='Registration__last_name'
+                        onChange={this.handleChange} />
+                </div>
+                <div className='username'>
+                    <label htmlFor='Registration__username'>
+                        Username
                         </label>
-                        <input
-                            name='username'
-                            type='text'
-                            required
-                            id='Registration__username'
-                            onChange={this.handleChange} />
-                    </div>
-                    <div className='email'>
-                        <label htmlFor='Registration__email'>
-                            Email
+                    <input
+                        name='username'
+                        type='text'
+                        required
+                        id='Registration__username'
+                        onChange={this.handleChange} />
+                </div>
+                <div className='email'>
+                    <label htmlFor='Registration__email'>
+                        Email
                         </label>
-                        <input
-                            name='email'
-                            type='email'
-                            required
-                            id='Registration__email'
-                            onChange={this.handleChange} />
-                    </div>
-                    <div className='password'>
-                        <label htmlFor='Registration__password'>
-                            Password
+                    <input
+                        name='email'
+                        type='email'
+                        required
+                        id='Registration__email'
+                        onChange={this.handleChange} />
+                </div>
+                <div className='password'>
+                    <label htmlFor='Registration__password'>
+                        Password
                         </label>
-                        <input
-                            name='password'
-                            type='password'
-                            required
-                            id='Registration__password'
-                            onChange={this.handleChange} />
-                    </div>
-                    <button type='submit'>Register</button>
-                </form>
-            </div>
+                    <input
+                        name='password'
+                        type='password'
+                        required
+                        id='Registration__password'
+                        onChange={this.handleChange} />
+                </div>
+                <button type='submit'>Register</button>
+            </form>
         )
     }
 }

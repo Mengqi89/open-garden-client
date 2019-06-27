@@ -27,48 +27,49 @@ class AddListingForm extends Component {
     handleAdd = event => {
         event.preventDefault()
         const newListing = this.state
-        console.log(newListing)
         ListApiService.postListing(newListing)
             .then(listing => listing.id)
             .then(listingId => this.handleAddSuccess(listingId))
+            .catch(res => {
+                console.log('error caught')
+                this.setState({ error: res.error })
+            })
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={(event) => this.handleAdd(event)} >
-                    <div>
-                        <label htmlFor='listing-title'>Title: </label><br />
-                        <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
+            <form onSubmit={(event) => this.handleAdd(event)} >
+                <div>
+                    <label htmlFor='listing-title'>Title: </label><br />
+                    <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
 
-                    </div>
-                    <div>
-                        <label htmlFor='listing-summary'>Summary: </label><br />
-                        <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        <p>Select listing type</p>
-                        <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
-                        <label htmlFor='vegetable'>vegetable</label>
+                </div>
+                <div>
+                    <label htmlFor='listing-summary'>Summary: </label><br />
+                    <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
+                </div>
+                <div>
+                    <p>Select listing type</p>
+                    <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
+                    <label htmlFor='vegetable'>vegetable</label>
 
-                        <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
-                        <label htmlFor='fruit'>fruit</label>
-                    </div>
-                    <div>
-                        <label htmlFor='contact'>Email/Cell</label>
-                        <input id='contact' name='contact' type='text' required onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        <label htmlFor='address'>Address</label>
-                        <input id='address' name='address' type='text' required onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        <label htmlFor='zip'>Zip</label>
-                        <input id='zip' name='zip' type='text' required onChange={this.handleChange} />
-                    </div>
-                    <button type='submit'>Share!</button>
-                </form>
-            </div>
+                    <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
+                    <label htmlFor='fruit'>fruit</label>
+                </div>
+                <div>
+                    <label htmlFor='contact'>Email/Cell</label>
+                    <input id='contact' name='contact' type='text' required onChange={this.handleChange} />
+                </div>
+                <div>
+                    <label htmlFor='address'>Address</label>
+                    <input id='address' name='address' type='text' required onChange={this.handleChange} />
+                </div>
+                <div>
+                    <label htmlFor='zip'>Zip</label>
+                    <input id='zip' name='zip' type='text' required onChange={this.handleChange} />
+                </div>
+                <button type='submit'>Share!</button>
+            </form>
         )
     }
 }
