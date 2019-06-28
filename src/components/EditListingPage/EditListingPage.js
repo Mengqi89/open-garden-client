@@ -1,6 +1,7 @@
 import React from 'react'
 import EditListingForm from '../EditListingForm/EditListingForm'
 import { withRouter } from 'react-router-dom'
+import Header from '../Header/Header'
 
 function EditListingPage(props) {
 
@@ -13,6 +14,7 @@ function EditListingPage(props) {
 
     return (
         <div className='EditListingPage'>
+            <Header username={props.myUserName} />
             <h2>Edit</h2>
             <EditListingForm
                 editListing={props.editListing}

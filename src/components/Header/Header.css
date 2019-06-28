@@ -1,0 +1,16 @@
+nav {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #168042;
+    text-decoration: none;
+    border: 1px solid rgb(255, 0, 140);
+    padding: 10px 20px;
+    margin: 5px;
+}

@@ -1,0 +1,16 @@
+.FilterOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+label {
+    float: left;
+    display: block;
+}
+
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+}

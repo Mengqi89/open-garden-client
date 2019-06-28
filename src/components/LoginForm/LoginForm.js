@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
+import './LoginForm.css'
 
 class LoginForm extends Component {
 
@@ -27,7 +28,6 @@ class LoginForm extends Component {
     }
     render() {
         const { error } = this.state
-
         return (
             <form className='LoginForm' onSubmit={(event) => this.handleSubmitJwtAuth(event)}>
                 <div role='alert'>{error && <p className='red'>{error}</p>}</div>

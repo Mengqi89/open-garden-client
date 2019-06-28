@@ -1,0 +1,141 @@
+.hero-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)),
+     url(../../images/vegetables2.jpg);
+    background-size: cover;
+    background-position: right;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.App__name {
+    color: white;
+    text-shadow: 2px 2px 4px rgb(165, 61, 61);
+    font-size: 48px;
+    width: 80%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.App__intro p {
+    color: white;
+    text-shadow: 2px 2px 4px rgb(165, 61, 61);
+    width: 80%;
+    padding: 5px;
+    margin: auto;
+    font-size: 20px;
+}
+
+.App_preview {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.join {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Custom */
+.join {
+  display: inline-block;
+  position: relative;
+  padding: 20px 35px;
+  top: 0;
+  font-size: 28px;
+  border: 1px solid rgb(255, 0, 140);
+  color: rgb(179, 230, 179);
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+  
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.join:hover {
+  top: -5px;
+  box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
+  
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+.join:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+
+/* .zip-form {
+    padding: 10px;
+}
+
+.zip-form input {
+    border: 1px solid gray;
+    background-color: rgb(218, 232, 218);
+} */
+
+.zip-form button {
+    cursor: pointer;
+    color: #168042;
+    background-color: transparent;
+}
+
+.zip-form button:hover {
+    font-weight: bold;
+}
+
+.sum {
+    font-size: 28px;
+    color:rgb(255, 0, 140);    
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.header {
+    background-color:  white;
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.header__login {
+    color: #168042;
+    text-decoration: none;
+    border: 1px solid rgb(255, 0, 140);
+    padding: 10px 20px;
+}
+
+.header__login:hover {
+    font-weight: bold;
+}
+
+.header__login:active {
+    top: 0px;
+    box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+    background: rgba( 20, 224, 133, 1 );
+}

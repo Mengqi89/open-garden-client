@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import ListApiService from '../../services/list-api-service'
+import Header from '../Header/Header'
+import './ListingPage.css'
 
 class ListingPage extends Component {
 
@@ -22,14 +23,11 @@ class ListingPage extends Component {
 
     render() {
         const listing = this.state.listing
-        const myUserName = this.props.myUserName
         const { error } = this.state
         return (
             <div>
-                <nav >
-                    <Link to={`/${myUserName}/`}>My List</Link> <br />
-                    <Link to='/list'>List</Link>
-                </nav>
+                <Header username={this.props.myUserName} />
+
                 <div role='alert'>{error && <p className='red'>{error}</p>}</div>
                 <header>
                     <h2>{listing.title}</h2>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-// import PrivateRoute from '../src/Utils/PrivateRoute'
-// import PublicOnlyRoute from '../src/Utils/PublicOnlyRoute'
 import ListPage from './components/ListPage/ListPage'
 import LandingPage from './components/LandingPage/LandingPage'
 import RegistrationPage from './components/RegistrationPage/RegistrationPage'
@@ -10,7 +8,6 @@ import ListingPage from './components/ListingPage/ListingPage'
 import AddListingPage from './components/AddListingPage/AddListingPage'
 import EditListingPage from './components/EditListingPage/EditListingPage'
 import MyListPage from './components/MyListPage/MyListPage'
-// import UsersApiService from './services/users-api-service'
 import config from '../src/config'
 
 class App extends Component {
@@ -47,7 +44,6 @@ class App extends Component {
 
   getEditListing = (id) => {
     const editListing = this.state.myList.filter(listing => listing.id === id)[0]
-    console.log(editListing)
     this.setState({
       editListing
     })
@@ -89,7 +85,8 @@ class App extends Component {
             <Route
               exact
               path={'/list/:listingId/edit'}
-              render={() => <EditListingPage editListing={this.state.editListing} myUserName={this.state.myUserName} />}></Route>
+              render={() => <EditListingPage
+                editListing={this.state.editListing} myUserName={this.state.myUserName} />}></Route>
           </Switch>
         </main>
       </div>

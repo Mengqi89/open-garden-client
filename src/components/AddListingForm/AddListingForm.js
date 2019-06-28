@@ -40,21 +40,26 @@ class AddListingForm extends Component {
         return (
             <form onSubmit={(event) => this.handleAdd(event)} >
                 <div>
-                    <label htmlFor='listing-title'>Title: </label><br />
+                    <label htmlFor='listing-title'>Title: </label>
                     <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
 
                 </div>
                 <div>
-                    <label htmlFor='listing-summary'>Summary: </label><br />
+                    <label htmlFor='listing-summary'>Summary: </label>
                     <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
                 </div>
-                <div>
-                    <p>Select listing type</p>
-                    <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
-                    <label htmlFor='vegetable'>vegetable</label>
+                <div className='options'>
+                    <div>Select listing type</div>
+                    <div className='radio-button'>
+                        <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
+                        <label htmlFor='vegetable'>vegetable</label>
+                    </div>
 
-                    <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
-                    <label htmlFor='fruit'>fruit</label>
+                    <div className='radio-button'>
+                        <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
+                        <label htmlFor='fruit'>fruit</label>
+                    </div>
+
                 </div>
                 <div>
                     <label htmlFor='contact'>Email/Cell</label>
@@ -69,7 +74,7 @@ class AddListingForm extends Component {
                     <input id='zip' name='zip' type='text' required onChange={this.handleChange} />
                 </div>
                 <button type='submit'>Share!</button>
-            </form>
+            </form >
         )
     }
 }

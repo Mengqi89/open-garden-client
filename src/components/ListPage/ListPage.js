@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
 import FilterableList from '../FilterableList/FilterableList'
 import ListApiService from '../../services/list-api-service'
+import Header from '../Header/Header'
 
 
 class ListPage extends Component {
@@ -33,15 +33,9 @@ class ListPage extends Component {
 
     render() {
         const list = this.props.list
-        const username = this.props.myUserName
         return (
-            <div className='App__home'>
-                <nav >
-                    <Link to={`/${username}/`}>My List</Link>
-                </nav>
-
-                <Link to='/add'><button type='submit'>Start a Share!</button></Link>
-
+            <div className='ListPage'>
+                <Header username={this.props.myUserName} />
                 <SearchBar
                     handleZip={zip => this.updateZip(zip)}
                     handleFilterChange={option => this.updateFilterOption(option)} />

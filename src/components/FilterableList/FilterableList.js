@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import './FilterableList.css'
 
 function FilterableList(props) {
     const { zip, option } = props
@@ -26,7 +27,7 @@ function FilterableList(props) {
         .filter(listing => checkZip(listing) && checkType(listing))
         .map(listing => <li key={listing.id}><Link to={`/list/${listing.id}`}>{listing.title}</Link></li>)
     return (
-        <div>
+        <div className='FilterableList'>
             {list}
         </div>
     )

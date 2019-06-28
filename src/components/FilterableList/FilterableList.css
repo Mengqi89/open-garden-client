@@ -1,0 +1,17 @@
+.FilterableList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 50%;
+  margin: auto;
+} 
+
+.FilterableList a:hover {
+  color: rgb(255, 0, 140)
+}
+
+.FilterableList a:active {
+  color: rgb(255, 0, 140);
+  font-weight: bold;
+}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import MyListItem from '../MyListItem/MyListItem'
 import { withRouter } from 'react-router-dom'
 import ListApiService from '../../services/list-api-service'
+import Header from '../Header/Header'
 
 class MyListPage extends Component {
     state = {
@@ -30,12 +31,10 @@ class MyListPage extends Component {
 
     render() {
         const myList = this.state.myList
-        console.log(myList)
+        const myUserName = this.props.match.params.myUserName
         return (
             <div>
-                <nav >
-                    <Link to='/list'>List</Link>
-                </nav>
+                <Header username={myUserName} />
                 <h2>My List</h2>
                 <MyListItem list={myList}
                     handleDelete={this.handleDelete}

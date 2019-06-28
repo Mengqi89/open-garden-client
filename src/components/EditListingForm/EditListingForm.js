@@ -19,7 +19,6 @@ class EditListingForm extends Component {
 
     handleUpdateSuccess = (listingId) => {
         const { history } = this.props
-        console.log(listingId)
         history.push(`/list/${listingId}`)
     }
 
@@ -27,7 +26,6 @@ class EditListingForm extends Component {
         event.preventDefault()
         const listingId = parseInt(this.props.match.params.listingId)
         const username = this.props.myUserName
-        console.log(listing)
         ListApiService.patchListing(username, listingId, listing)
             .then(listing => listing.id)
             .then(listingId => this.handleUpdateSuccess(listingId))
@@ -44,21 +42,25 @@ class EditListingForm extends Component {
             <div>
                 <form onSubmit={(event) => this.handleUpdate(event, this.state)}>
                     <div>
-                        <label htmlFor='listing-title'>Title: </label><br />
+                        <label htmlFor='listing-title'>Title: </label>
                         <input id='listing-title' name='title' type='text' placeholder='five tomatoes' value={this.state.title} onChange={this.handleChange} required />
 
                     </div>
                     <div>
-                        <label htmlFor='listing-summary'>Summary: </label><br />
-                        <textarea id='listing-summary' name='summary' rows='10' value={this.state.summary} onChange={this.handleChange} />
+                        <label htmlFor='listing-summary'>Summary: </label>
+                        <textarea id='listing-summary' name='summary' rows='7' value={this.state.summary} onChange={this.handleChange} />
                     </div>
-                    <div>
-                        <p>Select listing type</p>
-                        <input type='radio' id='vegetable' name='type' checked={this.state.type === 'vegetable'} value='vegetable' onChange={this.handleChange} />
-                        <label htmlFor='vegetable'>vegetable</label>
+                    <div className='options'>
+                        <div>Select listing type</div>
+                        <div className='radio-button'>
+                            <input type='radio' id='vegetable' name='type' checked={this.state.type === 'vegetable'} value='vegetable' onChange={this.handleChange} />
+                            <label htmlFor='vegetable'>vegetable</label>
+                        </div>
+                        <div className='radio-button'>
+                            <input type='radio' id='fruit' name='type' checked={this.state.type === 'fruit'} value='fruit' onChange={this.handleChange}></input>
+                            <label htmlFor='fruit'>fruit</label>
+                        </div>
 
-                        <input type='radio' id='fruit' name='type' checked={this.state.type === 'fruit'} value='fruit' onChange={this.handleChange}></input>
-                        <label htmlFor='fruit'>fruit</label>
                     </div>
                     <div>
                         <label htmlFor='contact'>Email/Cell</label>

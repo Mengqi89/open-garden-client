@@ -1,4 +1,5 @@
 import config from '../config'
+// import TokenService from '../services/token-service'
 
 const ListApiService = {
     getList() {
@@ -51,7 +52,6 @@ const ListApiService = {
         )
     },
     patchListing(username, listingId, listing) {
-        console.log(listing)
         return fetch(`${config.API_ENDPOINT}/list/users/${username}/${listingId}`, {
             method: 'PATCH',
             headers: {
