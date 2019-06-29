@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "gardenlist",
+    "name": "opengarden",
     "routes": [
         {
             "src": "^/static/(.*)",

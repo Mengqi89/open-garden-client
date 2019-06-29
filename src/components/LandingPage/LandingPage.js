@@ -31,7 +31,7 @@ class LandingPage extends Component {
                     <Link className='header__login' to="/login">Login</Link>
                 </nav>
                 <section className='hero-container'>
-                    <h1 className='App__name'>Garden List</h1>
+                    <h1 className='App__name'>Open Garden</h1>
                     <div className='App__intro'>
                         <p>Share extra vegetables and fruit with your community.   </p>
                     </div>
