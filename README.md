@@ -11,18 +11,20 @@ Use the demo credentials on the landing page or sign up for an account to explor
 
 ## Documentation of the API
 
+Domain: https://enigmatic-shelf-57504.herokuapp.com
+
 ### By users 
-* GET - returns all users https://enigmatic-shelf-57504.herokuapp.com/api/users
-* POST - register a user https://enigmatic-shelf-57504.herokuapp.com/api/users
+* GET - returns all users /api/users
+* POST - register a user /api/users
 
 ### By listing
-* GET - returns all listings https://enigmatic-shelf-57504.herokuapp.com/api/list
-* POST - post a listing https://enigmatic-shelf-57504.herokuapp.com/api/list
-* GET - get a listing by listing id https://enigmatic-shelf-57504.herokuapp.com/api/list/:listingId
-* GET - get all listings of a particular username https://enigmatic-shelf-57504.herokuapp.com/api/list/users/:username
-* GET - get a listing by username and listing id https://enigmatic-shelf-57504.herokuapp.com/api/list/users/:username/:listingId
-* PATCH - update a listing of a particular username https://enigmatic-shelf-57504.herokuapp.com/api/list/users/:username/:listingId
-* DELETE - delete a listing of a particular username https://enigmatic-shelf-57504.herokuapp.com/api/list/users/:username/:listingId
+* GET - returns all listings /api/list
+* POST - post a listing /api/list
+* GET - get a listing by listing id /api/list/:listingId
+* GET - get all listings of a particular username /api/list/users/:username
+* GET - get a listing by username and listing id /api/list/users/:username/:listingId
+* PATCH - update a listing of a particular username /api/list/users/:username/:listingId
+* DELETE - delete a listing of a particular username /api/list/users/:username/:listingId
 
 ## Technology used
 
