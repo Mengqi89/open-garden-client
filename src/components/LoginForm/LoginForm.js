@@ -39,7 +39,8 @@ class LoginForm extends Component {
                         name='username'
                         type='text'
                         required
-                        id='Login__username' />
+                        id='Login__username'
+                        placeholder='demo: dunder10' />
                 </div>
                 <div className='password'>
                     <label htmlFor='Login__password'>
@@ -49,7 +50,8 @@ class LoginForm extends Component {
                         name='password'
                         type='password'
                         required
-                        id='Login__password' />
+                        id='Login__password'
+                        placeholder='demo: !Ww898989' />
                 </div>
                 <button type='submit'>Login</button>
             </form>
