@@ -33,9 +33,9 @@ const ListApiService = {
                 'content-type': 'application/json',
                 // authorization: `bearer ${TokenService.getAuthToken()}`
             },
-            body: JSON.stringify({
+            body: JSON.stringify(
                 listing
-            })
+            )
         }).then(res =>
             !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
         )

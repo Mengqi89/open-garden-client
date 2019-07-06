@@ -1,5 +1,5 @@
 .FilterableList {
-  list-style-type: none;
+  list-style-type: circle;
   display: flex;
   flex-direction: column;
   justify-content: left;
