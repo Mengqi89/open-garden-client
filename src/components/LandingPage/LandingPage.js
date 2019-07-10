@@ -36,7 +36,6 @@ class LandingPage extends Component {
     }
 
     handleDemoLoginSuccess(username) {
-        console.log('login')
         const { history } = this.props
         history.push('/list')
         this.props.handleUserName(username)
@@ -44,7 +43,6 @@ class LandingPage extends Component {
 
     handleDemo = (event) => {
         event.preventDefault()
-        console.log('clicked')
         AuthApiService.postLogin({
             username: 'dunder10',
             password: '!Ww898989'
@@ -63,11 +61,11 @@ class LandingPage extends Component {
     render() {
         return (
             <div>
-                <nav className='header' onSubmit={(event) => this.handleDemo(event)}>
-                    <form className='demo-button'>
+                <nav className='header'>
+                    <Link className='header__login' to="/login">Login</Link>
+                    <form className='demo-button' onSubmit={(event) => this.handleDemo(event)}>
                         <button type='submit'>Demo</button>
                     </form>
-                    <Link className='header__login' to="/login">Login</Link>
                 </nav>
                 <section className='hero-container'>
                     <h1 className='App__name'>Open Garden</h1>
