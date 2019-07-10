@@ -57,7 +57,8 @@ class App extends Component {
             <Route
               exact
               path={'/'}
-              component={LandingPage}></Route>
+              render={() => <LandingPage handleUserName={this.updateUserName}
+              />}></Route>
             <Route
               exact
               path={'/list'}
@@ -80,7 +81,7 @@ class App extends Component {
               render={() => <AddListingPage handleAdd={this.handleAdd} myUserId={this.state.myUserId} />}></Route>
             <Route
               exact
-              path={'/:myUserName/'}
+              path={'/:myUserName/'}//change href in buttons of navbar
               render={() => <MyListPage updateMyList={this.updateMyList} getEditListing={this.getEditListing} myUserId={this.state.myUserId} myList={this.state.myList} />}></Route>
             <Route
               exact

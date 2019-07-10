@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import ListApiService from '../../services/list-api-service'
+import AuthApiService from '../../services/auth-api-service'
+import TokenService from '../../services/token-service'
 import { Link } from 'react-router-dom'
 import './LandingPage.css'
 
@@ -32,10 +35,38 @@ class LandingPage extends Component {
         }
     }
 
+    handleDemoLoginSuccess(username) {
+        console.log('login')
+        const { history } = this.props
+        history.push('/list')
+        this.props.handleUserName(username)
+    }
+
+    handleDemo = (event) => {
+        event.preventDefault()
+        console.log('clicked')
+        AuthApiService.postLogin({
+            username: 'dunder10',
+            password: '!Ww898989'
+        })
+            .then(res => {
+                TokenService.saveAuthToken(res.authToken)
+                this.handleDemoLoginSuccess('dunder10')
+            })
+            .catch(res => {
+                console.log(res.error)
+            })
+    }
+
+
+
     render() {
         return (
             <div>
-                <nav className='header'>
+                <nav className='header' onSubmit={(event) => this.handleDemo(event)}>
+                    <form className='demo-button'>
+                        <button type='submit'>Demo</button>
+                    </form>
                     <Link className='header__login' to="/login">Login</Link>
                 </nav>
                 <section className='hero-container'>
@@ -65,4 +96,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage
+export default withRouter(LandingPage)
