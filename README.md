@@ -10,8 +10,8 @@ Open Garden provides a platform for people to share homegrown vegetables and fru
 Use the demo credentials on the landing page or sign up for an account to explore the wonderful opportunities this community has to offer.
 
 ## Documentation of the API
-Repo: https://github.com/Mengqi89/open-garden-api 
-Domain: https://enigmatic-shelf-57504.herokuapp.com
+* Repo: https://github.com/Mengqi89/open-garden-api 
+* Domain: https://enigmatic-shelf-57504.herokuapp.com
 
 ### By users 
 * GET - returns all users /api/users
