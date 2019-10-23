@@ -30,6 +30,8 @@ class LandingPage extends Component {
     printMessage = () => {
         if (this.state.sum === 1) {
             return `There is ${this.state.sum} listing.`
+        } else if (this.state.sum === 0) {
+            return `There are no listings.`
         } else {
             return `There are ${this.state.sum} listings.`
         }
@@ -81,8 +83,9 @@ class LandingPage extends Component {
 
                 <div className='App_preview'>
                     <h2>How many listings are there in your neighborhood?</h2>
-                    <span className='sum'>{this.state.sum
-                        && this.printMessage()}</span>
+                    <span className='sum'>
+                        {this.state.sum !== null && this.printMessage()}
+                    </span>
                     <form className='zip-form' onSubmit={this.handleSum}>
                         <label htmlFor='zip'></label>
                         <input type='text' id='zip' placeholder='Enter zipcode' name='zip' required onChange={this.handleChange} />
