@@ -9,16 +9,21 @@ import './LandingPage.css'
 class LandingPage extends Component {
     state = {
         zip: null,
-        sum: null
+        sum: null,
+        loader: false
     }
 
     handleSum = event => {
         event.preventDefault()
+        this.setState({ loader: true })
         const zip = this.state.zip
         ListApiService.getList()
             .then(list => list.filter(listing => listing.zip === zip))
             .then(filteredList => filteredList.length)
-            .then(sum => this.setState({ sum }))
+            .then(sum => this.setState({
+                sum,
+                loader: false
+            }))
 
     }
     handleChange = event => {
@@ -35,6 +40,16 @@ class LandingPage extends Component {
         } else {
             return `There are ${this.state.sum} listings.`
         }
+    }
+
+    printLoader = () => {
+        return <div>
+            <div className='loader'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     }
 
     handleDemoLoginSuccess(username) {
@@ -81,13 +96,7 @@ class LandingPage extends Component {
 
                 <div className='App_preview'>
                     <h2>How many listings are there in your neighborhood?</h2>
-                    <div>
-                        <div className='loader'>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
+                    {this.state.loader !== false && this.printLoader()}
                     <span className='sum'>
                         {this.state.sum !== null && this.printMessage()}
                     </span>
