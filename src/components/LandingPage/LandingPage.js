@@ -58,8 +58,6 @@ class LandingPage extends Component {
             })
     }
 
-
-
     render() {
         return (
             <div>
@@ -83,6 +81,13 @@ class LandingPage extends Component {
 
                 <div className='App_preview'>
                     <h2>How many listings are there in your neighborhood?</h2>
+                    <div>
+                        <div className='loader'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
                     <span className='sum'>
                         {this.state.sum !== null && this.printMessage()}
                     </span>
