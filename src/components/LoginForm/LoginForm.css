@@ -1,14 +1,60 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 .LoginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border: solid 1.2px;
+    background: white;
+    opacity: 0.94;
+    width: 320px;
+    height: 300px;
+    padding: 0;
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.2), 0 1rem 1rem rgba(0,0,0,0.2);
 }
 
-.LoginForm div {
+/* format title */
+.LoginForm h2 {
+    background: rgb(255, 0, 140);
+    color: white;
+    width: 100%;
+    height: 2em;
+    margin: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-label {
+/* position input fields */
+.username, .password {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1.5em 1em;
+}
+
+/* format input fields */
+#Login__password, #Login__username {
+    border: none;
+    border-bottom: 1px solid black;
+    background: none;
+    width: 85%;
+}
+
+#Login__password:focus, #Login__username:focus {
+    outline: none;
+}
+
+/* format button */
+
+.LoginForm button {
+    border: 1px solid rgb(255, 0, 140);
+    width: 50%;
     display: block;
+    margin-top: 2em;
+    margin: auto;
 }
+
+
+/* align icons to input fields */
+.material-icons {
+    margin-top: 6px;
+}
+

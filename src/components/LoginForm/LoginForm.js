@@ -30,23 +30,23 @@ class LoginForm extends Component {
         const { error } = this.state
         return (
             <form className='LoginForm' onSubmit={(event) => this.handleSubmitJwtAuth(event)}>
+                <h2>Greetings!</h2>
+                <div className='login__check'></div>
                 <div role='alert'>{error && <p className='red'>{error}</p>}</div>
                 <div className='username'>
-                    <label htmlFor='Login__username'>
-                        Username
-                    </label>
+                    <i className="material-icons">person</i>
                     <input
                         name='username'
+                        placeholder='Username'
                         type='text'
                         required
                         id='Login__username' />
                 </div>
                 <div className='password'>
-                    <label htmlFor='Login__password'>
-                        Password
-                    </label>
+                    <i className="material-icons">lock</i>
                     <input
                         name='password'
+                        placeholder='Password'
                         type='password'
                         required
                         id='Login__password' />

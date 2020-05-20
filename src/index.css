@@ -33,14 +33,13 @@ input {
 
 form {
     padding: 10px;
+    margin: auto;
 }
 
 form button {
     cursor: pointer;
     color: #168042;
     background-color: transparent;
-    /* padding: 10px;
-    margin: 5px; */
 }
 
 form button:hover {
@@ -71,7 +70,7 @@ a:visited {
 }
 
 a:hover {
-  color: rgb(255, 0, 140)
+  color: rgb(255, 0, 140);
 }
 
 a:active {
@@ -122,6 +121,5 @@ input.radio {
 @media only screen and (min-width: 650px) {
     form {
         width: 70%;
-        margin: auto;
     }
 }

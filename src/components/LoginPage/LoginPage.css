@@ -1,0 +1,6 @@
+.LoginPage {
+    background: url(../../images/vegetable-bowl.jpg) no-repeat center fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
