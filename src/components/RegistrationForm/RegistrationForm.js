@@ -58,56 +58,46 @@ class RegistrationForm extends Component {
                 </div>
                 <p>All fields required.</p>
                 <div className='first_name'>
-                    <label htmlFor='Registration__first_name'>
-                        First Name
-                        </label>
                     <input
                         name='first_name'
                         type='text'
+                        placeholder='First Name'
                         required
                         id='Registration__first_name'
                         onChange={this.handleChange} />
                 </div>
                 <div className='last_name'>
-                    <label htmlFor='Registration__last_name'>
-                        Last Name
-                        </label>
                     <input
                         name='last_name'
                         type='text'
+                        placeholder='Last Name'
                         required
                         id='Registration__last_name'
                         onChange={this.handleChange} />
                 </div>
                 <div className='username'>
-                    <label htmlFor='Registration__username'>
-                        Username
-                        </label>
                     <input
                         name='username'
                         type='text'
+                        placeholder='Username'
                         required
                         id='Registration__username'
                         onChange={this.handleChange} />
                 </div>
                 <div className='email'>
-                    <label htmlFor='Registration__email'>
-                        Email
-                        </label>
                     <input
                         name='email'
                         type='email'
+                        placeholder='email'
                         required
                         id='Registration__email'
                         onChange={this.handleChange} />
                 </div>
                 <div className='password'>
-                    <label htmlFor='Registration__password'>
-                        Password
-                        </label>
                     <input
                         name='password'
                         type='password'
+                        placeholder='Password'
                         required
                         id='Registration__password'
                         onChange={this.handleChange} />
