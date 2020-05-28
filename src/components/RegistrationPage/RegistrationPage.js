@@ -14,7 +14,7 @@ function RegistrationPage(props) {
             <nav >
                 <Link to='/'>Go Back</Link>
             </nav>
-            <h2>Register</h2>
+            <h2>Create an account</h2>
             <RegistrationForm onRegistrationSuccess={handleRegistrationSuccess} />
         </div>
     )

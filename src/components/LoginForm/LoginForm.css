@@ -24,7 +24,7 @@
 }
 
 /* position input fields */
-.username, .password {
+.LoginForm .username, .LoginForm .password {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
