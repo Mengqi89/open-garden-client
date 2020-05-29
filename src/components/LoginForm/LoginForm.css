@@ -24,7 +24,7 @@
 }
 
 /* position input fields */
-.username, .password {
+.LoginForm .username, .LoginForm .password {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -53,6 +53,14 @@
     margin: auto;
 }
 
+/* format direction to registeration */
+.LoginForm p {
+    text-align: center;
+}
+
+.LoginForm p a {
+    color: rgb(255, 0, 140);
+}
 
 /* align icons to input fields */
 .material-icons {

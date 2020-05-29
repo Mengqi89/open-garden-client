@@ -100,6 +100,7 @@
     cursor: pointer;
     color: #168042;
     background-color: transparent;
+    border: 1px solid rgb(255, 0, 140);
 }
 
 .zip-form button:hover {

@@ -32,7 +32,6 @@ input {
 }
 
 form {
-    padding: 10px;
     margin: auto;
 }
 
@@ -116,10 +115,4 @@ input[type=radio],
 input.radio {
   float: left;
   clear: none;
-}
-
-@media only screen and (min-width: 650px) {
-    form {
-        width: 70%;
-    }
 }

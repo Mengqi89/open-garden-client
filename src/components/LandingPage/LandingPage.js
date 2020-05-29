@@ -102,7 +102,7 @@ class LandingPage extends Component {
                     </span>
                     <form className='zip-form' onSubmit={this.handleSum}>
                         <label htmlFor='zip'></label>
-                        <input type='text' id='zip' placeholder='Enter zipcode' name='zip' required onChange={this.handleChange} />
+                        <input type='text' id='zip' placeholder='Enter zip' name='zip' required onChange={this.handleChange} />
                         <button type='submit'>Find out!</button>
                     </form>
                 </div>
