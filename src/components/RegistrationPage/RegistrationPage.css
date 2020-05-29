@@ -1,0 +1,6 @@
+.RegistrationPage {
+    background: url(../../images/tomatoes.jpg) no-repeat center fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

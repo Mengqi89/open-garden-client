@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
+import { Link } from 'react-router-dom'
 
 class RegistrationForm extends Component {
     static defaultProps = {
@@ -40,7 +41,6 @@ class RegistrationForm extends Component {
                     username: this.state.username
                 })
                 .then(user => {
-                    console.log('successful')
                     this.setState({
                         first_name: '',
                         last_name: '',
@@ -51,17 +51,15 @@ class RegistrationForm extends Component {
                     this.props.onRegistrationSuccess()
                 })
                 .catch(res => {
-                    console.log('error caught')
                     this.setState({ error: res.error })
                 })
         }
-
-
     }
     render() {
         const { error } = this.state
         return (
             <form className='RegistrationForm' onSubmit={this.handleSubmit}>
+                <legend>Create an account</legend>
                 <div role='alert'>
                     {error && <p className='red'>{error}</p>}
                 </div>
@@ -120,6 +118,7 @@ class RegistrationForm extends Component {
                         onChange={this.handleChange} />
                 </div>
                 <button type='submit'>Create my account</button>
+                <p>Already have an account? <Link to='/login'>Sign in</Link></p>
             </form>
         )
     }
