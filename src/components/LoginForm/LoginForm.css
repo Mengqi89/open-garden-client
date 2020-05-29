@@ -53,6 +53,14 @@
     margin: auto;
 }
 
+/* format direction to registeration */
+.LoginForm p {
+    text-align: center;
+}
+
+.LoginForm p a {
+    color: rgb(255, 0, 140);
+}
 
 /* align icons to input fields */
 .material-icons {

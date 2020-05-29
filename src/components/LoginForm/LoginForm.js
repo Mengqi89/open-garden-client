@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 import './LoginForm.css'
+import { Link } from 'react-router-dom'
 
 class LoginForm extends Component {
 
@@ -52,6 +53,7 @@ class LoginForm extends Component {
                         id='Login__password' />
                 </div>
                 <button type='submit'>Login</button>
+                <p>New to Open Garden? <Link to='/register'>Join!</Link></p>
             </form>
         )
     }
