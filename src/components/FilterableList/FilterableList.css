@@ -1,17 +1,53 @@
 .FilterableList {
-  list-style-type: circle;
   display: flex;
-  flex-direction: column;
-  justify-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 50%;
-  margin: auto;
-} 
-
-.FilterableList a:hover {
-  color: rgb(255, 0, 140)
+  margin: 1em auto;
 }
 
-.FilterableList a:active {
+.card {
+  height: 10em;
+  width: 28%;
+  margin: .7em;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px 4px #168042, -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+}
+
+.card:hover .card-description {
   color: rgb(255, 0, 140);
-  font-weight: bold;
+}
+
+.fruit, .vegetable {
+  width: 100%;
+  height: 70%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.fruit {
+  background-image: url(../../images/fruit.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.vegetable {
+  background-image: url(../../images/vegetable.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-description {
+  display: block;
+  font-weight: bolder;
+  margin: .5em;
 }

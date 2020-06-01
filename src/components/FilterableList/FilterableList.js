@@ -25,7 +25,11 @@ function FilterableList(props) {
 
     const list = props.listings
         .filter(listing => checkZip(listing) && checkType(listing))
-        .map(listing => <li key={listing.id}><Link to={`/list/${listing.id}`}>{listing.title}</Link></li>)
+        .map(listing =>
+            <Link to={`/list/${listing.id}`} key={listing.id} className='card'>
+                <div className={listing.type}></div>
+                <p className='card-description'>{listing.title}</p>
+            </Link>)
     return (
         <div className='FilterableList'>
             {list}
