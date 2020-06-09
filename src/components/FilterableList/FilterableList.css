@@ -1,15 +1,12 @@
 .FilterableList {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 50%;
-  margin: 1em auto;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
   height: 10em;
-  width: 28%;
+  width: 50%;
   margin: .7em;
   border-radius: 10px;
   box-shadow: 2px 2px 3px 4px #168042, -5px -5px 30px 7px rgba(0,0,0,0.22);
@@ -50,4 +47,18 @@
   display: block;
   font-weight: bolder;
   margin: .5em;
+}
+
+@media only screen and (min-width: 768px) {
+  .FilterableList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 60%;
+    margin: 0 auto;
+  }
+  .card {
+    width: 30%;
+  }
 }
