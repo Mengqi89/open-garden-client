@@ -8,7 +8,7 @@ function SearchBox(props) {
                 <input
                     onChange={event => props.handleZip(event.target.value)}
                     id='zip'
-                    placeholder='Filter by zip'></input>
+                    placeholder='Enter zip'></input>
             </form>
         </div>
     );
