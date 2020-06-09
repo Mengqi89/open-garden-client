@@ -1,21 +1,40 @@
 .FilterOptions {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px;
 }
 
-fieldset {
-  width: 50%;
+.FilterOptions fieldset {
+  border: none;
 }
 
- label {
-    float: left;
-    display: block;
-}
-
-input[type=radio],
-input.radio {
+.FilterOptions fieldset label {
   float: left;
-  clear: none;
-} 
+  display: block;
+  font-size: 1.3em;
+  padding-right: .8em;
+  padding-left: 0.2em;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 0, 140);
+  color: black;
+  padding: .5em;
+  cursor: pointer;
+  margin: 0.3em;
+  width: 6em;
+  text-align: center;
+}
+
+.FilterOptions fieldset input[type=radio] {
+  display: none;
+}
+
+.FilterOptions fieldset label:hover {
+  color: rgb(255, 0, 140);
+  font-weight: bolder;
+}
+
+.FilterOptions fieldset input[type=radio]:checked + label {
+  background-color: rgba( 20, 224, 133, 1 );
+}
