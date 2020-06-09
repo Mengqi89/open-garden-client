@@ -12,7 +12,7 @@
 .FilterOptions fieldset label {
   float: left;
   display: block;
-  font-size: 1.3em;
+  font-size: 1em;
   padding-right: .8em;
   padding-left: 0.2em;
   background: white;
@@ -22,7 +22,7 @@
   padding: .5em;
   cursor: pointer;
   margin: 0.3em;
-  width: 6em;
+  width: 5em;
   text-align: center;
 }
 
@@ -37,4 +37,11 @@
 
 .FilterOptions fieldset input[type=radio]:checked + label {
   background-color: rgba( 20, 224, 133, 1 );
+}
+
+@media only screen and (min-width: 768px) {
+  .FilterOptions fieldset label {
+    font-size: 1.3em;
+    width: 6em;
+  }
 }
