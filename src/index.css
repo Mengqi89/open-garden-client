@@ -27,7 +27,6 @@ p {
 input {
     border: 1px solid gray;
     background-color: rgb(218, 232, 218);
-    margin: 2px;
     padding: 10px;
 }
 
@@ -90,7 +89,6 @@ form div {
 textarea {
     border: 1px solid gray;
     background-color: rgb(218, 232, 218);
-    margin: 2px;
     padding: 10px;
 }
 

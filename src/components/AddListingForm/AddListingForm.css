@@ -1,0 +1,44 @@
+.AddListingForm div input, .AddListingForm div textarea {
+    margin-bottom: 1em;
+    border: none;
+}
+
+.AddListingForm div label {
+    padding-bottom: .4em;
+}
+
+.AddListingForm .options .radio-button input[type=radio] {
+    display: none;
+}
+
+.AddListingForm .options .radio-button label {
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 0, 140);
+    color: black;
+    padding: .5em;
+    cursor: pointer;
+    margin-right: .3em;
+    margin-bottom: 1em;
+}
+
+.AddListingForm .options .radio-button label:hover {
+    color: rgb(255, 0, 140);
+    font-weight: bolder;
+}
+
+.AddListingForm .options .radio-button input[type=radio]:checked + label {
+    background: rgba(20, 244, 133, 1);
+}
+
+.AddListingForm button {
+    display: block;
+    margin: 0 auto;
+
+}
+
+@media only screen and (min-width: 768px) {
+    .AddListingForm {
+        width: 60%;
+    }
+}

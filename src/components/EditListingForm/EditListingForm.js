@@ -51,7 +51,6 @@ class EditListingForm extends Component {
                         <textarea id='listing-summary' name='summary' rows='7' value={this.state.summary} onChange={this.handleChange} />
                     </div>
                     <div className='options'>
-                        <div>Select listing type</div>
                         <div className='radio-button'>
                             <input type='radio' id='vegetable' name='type' checked={this.state.type === 'vegetable'} value='vegetable' onChange={this.handleChange} />
                             <label htmlFor='vegetable'>vegetable</label>

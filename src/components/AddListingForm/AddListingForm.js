@@ -39,7 +39,7 @@ class AddListingForm extends Component {
 
     render() {
         return (
-            <form onSubmit={(event) => this.handleAdd(event)} >
+            <form onSubmit={(event) => this.handleAdd(event)} className='AddListingForm'>
                 <div>
                     <label htmlFor='listing-title'>Title: </label>
                     <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
@@ -50,7 +50,6 @@ class AddListingForm extends Component {
                     <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
                 </div>
                 <div className='options'>
-                    <div>Type</div>
                     <div className='radio-button'>
                         <input type='radio' id='vegetable' name='type' value='vegetable' required onChange={this.handleChange} />
                         <label htmlFor='vegetable'>vegetable</label>
