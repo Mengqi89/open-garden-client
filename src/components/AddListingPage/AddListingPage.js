@@ -12,8 +12,8 @@ function AddListingPage(props) {
             </nav>
             <header>
                 <h2>Create a listing!</h2>
-                <AddListingForm handleAdd={props.handleAdd} myUserId={props.myUserId} />
             </header>
+            <AddListingForm handleAdd={props.handleAdd} myUserId={props.myUserId} />
         </div>
 
     )

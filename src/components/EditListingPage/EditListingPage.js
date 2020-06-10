@@ -15,7 +15,9 @@ function EditListingPage(props) {
     return (
         <div className='EditListingPage'>
             <Header username={props.myUserName} />
-            <h2>Edit</h2>
+            <header>
+                <h2>Edit</h2>
+            </header>
             <EditListingForm
                 editListing={props.editListing}
                 onEditSuccess={handleEditSuccess}

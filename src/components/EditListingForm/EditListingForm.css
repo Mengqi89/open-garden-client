@@ -1,21 +1,21 @@
-.AddListingForm {
+.EditListingForm {
     padding: 0 20px;
 }
 
-.AddListingForm div input, .AddListingForm div textarea {
+.EditListingForm div input, .EditListingForm div textarea {
     margin-bottom: 1em;
     border: none;
 }
 
-.AddListingForm div label {
+.EditListingForm div label {
     padding-bottom: .4em;
 }
 
-.AddListingForm .options .radio-button input[type=radio] {
+.EditListingForm .options .radio-button input[type=radio] {
     display: none;
 }
 
-.AddListingForm .options .radio-button label {
+.EditListingForm .options .radio-button label {
     background: white;
     border-radius: 5px;
     border: 1px solid rgb(255, 0, 140);
@@ -26,23 +26,23 @@
     margin-bottom: 1em;
 }
 
-.AddListingForm .options .radio-button label:hover {
+.EditListingForm .options .radio-button label:hover {
     color: rgb(255, 0, 140);
     font-weight: bolder;
 }
 
-.AddListingForm .options .radio-button input[type=radio]:checked + label {
+.EditListingForm .options .radio-button input[type=radio]:checked + label {
     background: rgba(20, 244, 133, 1);
 }
 
-.AddListingForm button {
+.EditListingForm button {
     display: block;
     margin: 0 auto;
 
 }
 
 @media only screen and (min-width: 768px) {
-    .AddListingForm {
+    .EditListingForm {
         width: 60%;
     }
 }

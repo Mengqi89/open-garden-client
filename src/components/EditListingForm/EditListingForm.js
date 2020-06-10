@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ListApiService from '../../services/list-api-service'
 import { withRouter } from 'react-router-dom'
+import './EditListingForm.css'
 
 class EditListingForm extends Component {
 
@@ -40,7 +41,7 @@ class EditListingForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(event) => this.handleUpdate(event, this.state)}>
+                <form className='EditListingForm' onSubmit={(event) => this.handleUpdate(event, this.state)}>
                     <div>
                         <label htmlFor='listing-title'>Title: </label>
                         <input id='listing-title' name='title' type='text' placeholder='five tomatoes' value={this.state.title} onChange={this.handleChange} required />
