@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ListApiService from '../../services/list-api-service'
 import { withRouter } from 'react-router-dom'
+import './AddListingForm.css'
 
 class AddListingForm extends Component {
     state = {
@@ -49,14 +50,14 @@ class AddListingForm extends Component {
                     <textarea id='listing-summary' name='summary' rows='10' onChange={this.handleChange} />
                 </div>
                 <div className='options'>
-                    <div>Select listing type</div>
+                    <div>Type</div>
                     <div className='radio-button'>
-                        <input type='radio' id='vegetable' name='type' value='vegetable' onChange={this.handleChange} />
+                        <input type='radio' id='vegetable' name='type' value='vegetable' required onChange={this.handleChange} />
                         <label htmlFor='vegetable'>vegetable</label>
                     </div>
 
                     <div className='radio-button'>
-                        <input type='radio' id='fruit' name='type' value='fruit' onChange={this.handleChange}></input>
+                        <input type='radio' id='fruit' name='type' value='fruit' required onChange={this.handleChange}></input>
                         <label htmlFor='fruit'>fruit</label>
                     </div>
 
@@ -80,8 +81,3 @@ class AddListingForm extends Component {
 }
 
 export default withRouter(AddListingForm)
-
-//1 class component
-//2 state to hold all data
-//3 onChange to send all data to state
-//4 onSubmit to send the data somewhere

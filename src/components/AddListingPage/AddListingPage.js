@@ -11,7 +11,7 @@ function AddListingPage(props) {
                 <Link to='/list'>List Page</Link>
             </nav>
             <header>
-                <h2>Fresh Share!</h2>
+                <h2>Create a listing!</h2>
                 <AddListingForm handleAdd={props.handleAdd} myUserId={props.myUserId} />
             </header>
         </div>
