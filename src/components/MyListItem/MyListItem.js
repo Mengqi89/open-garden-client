@@ -18,7 +18,6 @@ function MyListItem(props) {
                     <button type='submit'>Delete</button>
                 </form>
             </div>
-
         </li>)
 
     return (

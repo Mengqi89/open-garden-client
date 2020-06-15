@@ -43,7 +43,7 @@ class AddListingForm extends Component {
                 <form onSubmit={(event) => this.handleAdd(event)} className='AddListingForm'>
                     <div>
                         <label htmlFor='listing-title'>Title: </label>
-                        <input id='listing-title' name='title' type='text' placeholder='five tomatoes' required onChange={this.handleChange} />
+                        <input id='listing-title' name='title' type='text' placeholder='Five tomatoes' required onChange={this.handleChange} />
 
                     </div>
                     <div>
